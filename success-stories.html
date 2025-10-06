@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Stories - Cares Capital Group</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: #ffffff;
+            color: #2c3e50;
+            padding: 4rem 0 3rem 0;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            color: #2c3e50;
+            letter-spacing: -0.01em;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: #6c757d;
+            font-weight: 400;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Stories Section */
+        .stories-section {
+            padding: 4rem 0;
+            background: #ffffff;
+        }
+        
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .story-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            padding: 2rem;
+            transition: all 0.2s ease;
+        }
+        
+        .story-card:hover {
+            border-color: #dee2e6;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .story-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .story-avatar {
+            width: 60px;
+            height: 60px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            border: 1px solid #e9ecef;
+        }
+        
+        .story-avatar i {
+            font-size: 1.5rem;
+            color: #2c3e50;
+        }
+        
+        .story-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.2rem;
+        }
+        
+        .story-info .location {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 0.3rem;
+        }
+        
+        .story-info .loan-type {
+            font-size: 0.8rem;
+            color: #667eea;
+            font-weight: 500;
+            background: #f8f9fa;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        
+        .story-quote {
+            font-size: 1rem;
+            color: #495057;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .story-quote::before {
+            content: '"';
+            font-size: 2rem;
+            color: #667eea;
+            position: absolute;
+            top: -0.5rem;
+            left: -0.5rem;
+            font-family: serif;
+        }
+        
+        .story-reasons {
+            margin-bottom: 1.5rem;
+        }
+        
+        .story-reasons h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+        }
+        
+        .reasons-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .reasons-list li {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-bottom: 0.3rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .reasons-list li::before {
+            content: '•';
+            color: #667eea;
+            position: absolute;
+            left: 0;
+        }
+        
+        .story-cta {
+            text-align: center;
+        }
+        
+        .read-story-btn {
+            background: #2c3e50;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border: 1px solid #2c3e50;
+            display: inline-block;
+        }
+        
+        .read-story-btn:hover {
+            background: #34495e;
+            border-color: #34495e;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .cta-section p {
+            font-size: 1rem;
+            color: #6c757d;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            background: #667eea;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+            border: 1px solid #667eea;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            background: #5a6fd8;
+            border-color: #5a6fd8;
+        }
+        
+        /* Disclaimer */
+        .disclaimer {
+            padding: 2rem 0;
+            background: #ffffff;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .disclaimer p {
+            font-size: 0.85rem;
+            color: #6c757d;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .story-card {
+                padding: 1.5rem;
+            }
+            
+            .story-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .story-avatar {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <div class="logo-container">
+                        <div class="logo-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h2 class="logo-text">Cares Capital</h2>
+                    </div>
+                </div>
+                
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Small Business Loans <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="commercial-line-of-credit.html">Commercial Line of Credit</a></li>
+                                <li><a href="term-loans.html">Term Loans</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="free-credit-score.html">Free Credit Score</a></li>
+                                <li><a href="trends-report.html">Trends Report</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="who-we-are.html">Who We Are</a></li>
+                                <li><a href="success-stories.html">Success Stories</a></li>
+                                <li><a href="become-a-partner.html">Become a Partner</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="tel:9146508064" class="nav-link phone">914-650-8064</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" id="loginBtn" onclick="window.location.href='signup.html'">Sign In</button>
+                    <a href="signup.html" class="btn btn-primary">Create Account</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Cares Capital Group Reviews</h1>
+            <p class="subtitle">See why business owners like you chose Cares Capital Group.</p>
+        </div>
+    </section>
+
+    <!-- Stories Section -->
+    <section class="stories-section">
+        <div class="container">
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="story-info">
+                            <h3>Frank and Lori Cosenza</h3>
+                            <div class="location">Bullhead City, AZ</div>
+                            <div class="loan-type">Line of Credit</div>
+                        </div>
+                    </div>
+                    <div class="story-quote">
+                        Cares Capital Group had the terms that I wanted, and they were friendly and helpful. They explained everything very clearly to me on how it was going to work.
+                    </div>
+                    <div class="story-reasons">
+                        <h4>Why Frank and Lori chose funding from Care Capital Group:</h4>
+                        <ul class="reasons-list">
+                            <li>Simple application</li>
+                            <li>Fair terms</li>
+                            <li>Helpful support</li>
+                        </ul>
+                    </div>
+                    <div class="story-cta">
+                        <a href="#" class="read-story-btn">Read Story</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="story-info">
+                            <h3>Melissa Diabate</h3>
+                            <div class="location">Houston, TX</div>
+                            <div class="loan-type">Line of Credit Term Loan</div>
+                        </div>
+                    </div>
+                    <div class="story-quote">
+                        COVID really impacted my suppliers and sales. Care Capital Group helped me keep up with the competition as I was becoming known in my industry.
+                    </div>
+                    <div class="story-reasons">
+                        <h4>Why Melissa chose funding from Cares Capital Group:</h4>
+                        <ul class="reasons-list">
+                            <li>Bank loan alternative</li>
+                            <li>Helpful loan advisors</li>
+                            <li>Realistic payback terms</li>
+                        </ul>
+                    </div>
+                    <div class="story-cta">
+                        <a href="#" class="read-story-btn">Read Story</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="story-info">
+                            <h3>Mark Kruger</h3>
+                            <div class="location">Omaha, NE</div>
+                            <div class="loan-type">Line of Credit Term Loan</div>
+                        </div>
+                    </div>
+                    <div class="story-quote">
+                        The entire application process was online, which was fairly simple — took maybe 15 minutes. I was approved in a very short amount of time, and was very relieved to be able to make payroll.
+                    </div>
+                    <div class="story-reasons">
+                        <h4>Why Mark chose funding from Cares Capital Group:</h4>
+                        <ul class="reasons-list">
+                            <li>Fast online application</li>
+                            <li>Easy-to-use repayment portal</li>
+                            <li>More funding offered than bank</li>
+                        </ul>
+                    </div>
+                    <div class="story-cta">
+                        <a href="#" class="read-story-btn">Read Story</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="story-info">
+                            <h3>Henry Lee</h3>
+                            <div class="location">Balch Springs, TX</div>
+                            <div class="loan-type">Line of Credit Term Loan</div>
+                        </div>
+                    </div>
+                    <div class="story-quote">
+                        We have used Cares Capital Group for years now and are very happy to have them on our side. They have always worked well with us and been professional at every stage of the process.
+                    </div>
+                    <div class="story-reasons">
+                        <h4>Why Henry chose funding from Cares Capital Group:</h4>
+                        <ul class="reasons-list">
+                            <li>Quick funding</li>
+                            <li>Great customer service</li>
+                            <li>Easy online process</li>
+                        </ul>
+                    </div>
+                    <div class="story-cta">
+                        <a href="#" class="read-story-btn">Read Story</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="story-info">
+                            <h3>Matt Bliss</h3>
+                            <div class="location">Denver, CO</div>
+                            <div class="loan-type">Line of Credit</div>
+                        </div>
+                    </div>
+                    <div class="story-quote">
+                        They give you the ability to select the payment term that meets your needs. As our sales have increased, and as I've proven to be a good customer that pays their bills, I've been able to be approved year after year for a larger amount.
+                    </div>
+                    <div class="story-reasons">
+                        <h4>Why Matt chose funding from Cares Capital Group:</h4>
+                        <ul class="reasons-list">
+                            <li>Less paperwork to provide</li>
+                            <li>Better rates and terms</li>
+                            <li>Simple, quick application</li>
+                        </ul>
+                    </div>
+                    <div class="story-cta">
+                        <a href="#" class="read-story-btn">Read Story</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="story-info">
+                            <h3>Leah Retamozo</h3>
+                            <div class="location">St. Paul, MN</div>
+                            <div class="loan-type">Line of Credit</div>
+                        </div>
+                    </div>
+                    <div class="story-quote">
+                        As I went through working with banks and other sources, I realized that the process with Care Capital Group was a million times easier.
+                    </div>
+                    <div class="story-reasons">
+                        <h4>Why Leah chose funding from Cares Capital Group:</h4>
+                        <ul class="reasons-list">
+                            <li>Simpler lending process</li>
+                            <li>Flexible funding</li>
+                            <li>Supportive, responsive staff</li>
+                        </ul>
+                    </div>
+                    <div class="story-cta">
+                        <a href="#" class="read-story-btn">Read Story</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="story-info">
+                            <h3>Ghassan Bilaih</h3>
+                            <div class="location">Irving, TX</div>
+                            <div class="loan-type">Term Loan</div>
+                        </div>
+                    </div>
+                    <div class="story-quote">
+                        Cares Capital Group was easy to navigate, and the process goes on autopilot after you sign the contract. I don't have to call to keep track of my payments.
+                    </div>
+                    <div class="story-reasons">
+                        <h4>Why Ghassan chose funding from Care Capital Group:</h4>
+                        <ul class="reasons-list">
+                            <li>Fewer required documents</li>
+                            <li>Budget-friendly terms</li>
+                            <li>Professional and friendly staff</li>
+                        </ul>
+                    </div>
+                    <div class="story-cta">
+                        <a href="#" class="read-story-btn">Read Story</a>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="story-info">
+                            <h3>Chandra Franklin Womack, P.E.</h3>
+                            <div class="location">Texas City, TX</div>
+                            <div class="loan-type">Line of Credit Term Loan</div>
+                        </div>
+                    </div>
+                    <div class="story-quote">
+                        I got an amazing offer for a line of credit that would give me some flexibility for the future.
+                    </div>
+                    <div class="story-reasons">
+                        <h4>Why Chandra chose funding from Cares Capital Group:</h4>
+                        <ul class="reasons-list">
+                            <li>Simple loan application</li>
+                            <li>Fast funding</li>
+                            <li>Several funding options</li>
+                        </ul>
+                    </div>
+                    <div class="story-cta">
+                        <a href="#" class="read-story-btn">Read Story</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Get Started With Cares Capital Group</h2>
+            <p>Join thousands of satisfied business owners who have found their perfect financing partner.</p>
+            <a href="https://cares-capital-group.formaloo.co/xeo282" target="_blank" class="cta-button">Apply Now</a>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="disclaimer">
+        <div class="container">
+            <p>Some customers may have been compensated for sharing their stories.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Small Business Loans</h3>
+                    <ul>
+                        <li><a href="commercial-line-of-credit.html">Commercial Line of Credit</a></li>
+                        <li><a href="term-loans.html">Term Loans</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="free-credit-score.html">Free Credit Score</a></li>
+                        <li><a href="trends-report.html">Trends Report</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="who-we-are.html">Who We Are</a></li>
+                        <li><a href="success-stories.html">Success Stories</a></li>
+                        <li><a href="#">Become a Partner</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> 914-650-8064</p>
+                    <p><i class="fas fa-clock"></i> Monday - Friday<br>9 a.m. - 7:30 p.m. ET</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cares Capital Group. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Security Policy</a>
+                </div>
+                <div class="footer-badges">
+                    <img src="Footer cares capital group .JPG" alt="Cares Capital Group Accréditations" class="accreditation-image">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>

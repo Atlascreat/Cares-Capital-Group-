@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Cares Capital Group</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #2c3e50;
+            padding: 2rem 0 3rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .hero-text {
+            text-align: left;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: #2c3e50;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #6c757d;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.2);
+        }
+        
+        .stat-item:hover::before {
+            left: 100%;
+        }
+        
+        .stat-item:nth-child(1) {
+            animation: stat-float 6s ease-in-out infinite;
+            animation-delay: 0s;
+        }
+        
+        .stat-item:nth-child(2) {
+            animation: stat-float 6s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+        
+        .stat-item:nth-child(3) {
+            animation: stat-float 6s ease-in-out infinite;
+            animation-delay: 4s;
+        }
+        
+        @keyframes stat-float {
+            0%, 100% { 
+                transform: translateY(0px); 
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            }
+            50% { 
+                transform: translateY(-3px); 
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+            }
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+            margin-bottom: 0.3rem;
+            animation: number-glow 3s ease-in-out infinite;
+            position: relative;
+        }
+        
+        .stat-number::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            animation: number-shine 4s ease-in-out infinite;
+        }
+        
+        .stat-label {
+            color: #6c757d;
+            font-weight: 500;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+        }
+        
+        .stat-item:hover .stat-label {
+            color: #667eea;
+        }
+        
+        @keyframes number-glow {
+            0%, 100% { 
+                text-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+            }
+            50% { 
+                text-shadow: 0 0 15px rgba(102, 126, 234, 0.6);
+            }
+        }
+        
+        @keyframes number-shine {
+            0%, 100% { 
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            50% { 
+                opacity: 1;
+                transform: translateX(100%);
+            }
+        }
+        
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .faq-illustration {
+            position: relative;
+            width: 250px;
+            height: 150px;
+        }
+        
+        .question-bubble, .answer-bubble {
+            position: absolute;
+            background: white;
+            border-radius: 20px;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            animation: float 4s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .question-bubble {
+            top: 20px;
+            left: 20px;
+            color: #667eea;
+            animation-delay: 0s;
+            animation-name: float-question;
+        }
+        
+        .answer-bubble {
+            bottom: 20px;
+            right: 20px;
+            color: #28a745;
+            animation-delay: 2s;
+            animation-name: float-answer;
+        }
+        
+        .question-bubble i, .answer-bubble i {
+            font-size: 1.5rem;
+            animation: icon-pulse 2s ease-in-out infinite;
+        }
+        
+        .question-bubble i {
+            animation-delay: 0s;
+        }
+        
+        .answer-bubble i {
+            animation-delay: 1s;
+        }
+        
+        .connection-line {
+            display: none;
+        }
+        
+        @keyframes float-question {
+            0%, 100% { 
+                transform: translateY(0px) rotate(-2deg); 
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+            }
+            25% { 
+                transform: translateY(-8px) rotate(1deg); 
+                box-shadow: 0 12px 35px rgba(102, 126, 234, 0.25);
+            }
+            50% { 
+                transform: translateY(-15px) rotate(-1deg); 
+                box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+            }
+            75% { 
+                transform: translateY(-8px) rotate(1deg); 
+                box-shadow: 0 12px 35px rgba(102, 126, 234, 0.25);
+            }
+        }
+        
+        @keyframes float-answer {
+            0%, 100% { 
+                transform: translateY(0px) rotate(2deg); 
+                box-shadow: 0 8px 25px rgba(40, 167, 69, 0.15);
+            }
+            25% { 
+                transform: translateY(-8px) rotate(-1deg); 
+                box-shadow: 0 12px 35px rgba(40, 167, 69, 0.25);
+            }
+            50% { 
+                transform: translateY(-15px) rotate(1deg); 
+                box-shadow: 0 15px 40px rgba(40, 167, 69, 0.3);
+            }
+            75% { 
+                transform: translateY(-8px) rotate(-1deg); 
+                box-shadow: 0 12px 35px rgba(40, 167, 69, 0.25);
+            }
+        }
+        
+        @keyframes icon-pulse {
+            0%, 100% { 
+                transform: scale(1); 
+                opacity: 1;
+            }
+            50% { 
+                transform: scale(1.2); 
+                opacity: 0.8;
+            }
+        }
+        
+
+        
+
+        
+        /* Introduction Section */
+        .intro-section {
+            background: white;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .intro-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+        
+        .intro-text h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .intro-text p {
+            font-size: 1rem;
+            color: #6c757d;
+            line-height: 1.6;
+        }
+        
+        .quick-links h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .quick-link-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .quick-link {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #e9ecef;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quick-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .quick-link:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            border-color: #667eea;
+        }
+        
+        .quick-link:hover::before {
+            left: 100%;
+        }
+        
+        .quick-link i {
+            font-size: 1.2rem;
+            color: #667eea;
+            transition: all 0.3s ease;
+            animation: icon-bounce 2s ease-in-out infinite;
+        }
+        
+        .quick-link:nth-child(1) i {
+            animation-delay: 0s;
+        }
+        
+        .quick-link:nth-child(2) i {
+            animation-delay: 0.5s;
+        }
+        
+        .quick-link:nth-child(3) i {
+            animation-delay: 1s;
+        }
+        
+        .quick-link:nth-child(4) i {
+            animation-delay: 1.5s;
+        }
+        
+        .quick-link:hover i {
+            color: white;
+            transform: scale(1.2) rotate(5deg);
+            animation-play-state: paused;
+        }
+        
+        @keyframes icon-bounce {
+            0%, 100% { 
+                transform: translateY(0px); 
+            }
+            50% { 
+                transform: translateY(-3px); 
+            }
+        }
+        
+        /* FAQ Navigation */
+        .faq-nav {
+            background: #f8f9fa;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .faq-nav h3 {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+        
+        .faq-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .faq-category {
+            background: white;
+            color: #6c757d;
+            border: 2px solid #e9ecef;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .faq-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .faq-category:hover,
+        .faq-category.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .faq-category:hover::before,
+        .faq-category.active::before {
+            left: 100%;
+        }
+        
+        .faq-category i {
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            animation: category-icon-pulse 3s ease-in-out infinite;
+        }
+        
+        .faq-category:nth-child(1) i {
+            animation-delay: 0s;
+        }
+        
+        .faq-category:nth-child(2) i {
+            animation-delay: 0.5s;
+        }
+        
+        .faq-category:nth-child(3) i {
+            animation-delay: 1s;
+        }
+        
+        .faq-category:nth-child(4) i {
+            animation-delay: 1.5s;
+        }
+        
+        .faq-category:nth-child(5) i {
+            animation-delay: 2s;
+        }
+        
+        .faq-category:nth-child(6) i {
+            animation-delay: 2.5s;
+        }
+        
+        .faq-category:nth-child(7) i {
+            animation-delay: 3s;
+        }
+        
+        .faq-category:hover i,
+        .faq-category.active i {
+            transform: scale(1.2) rotate(10deg);
+            animation-play-state: paused;
+        }
+        
+        @keyframes category-icon-pulse {
+            0%, 100% { 
+                transform: scale(1); 
+                opacity: 0.8;
+            }
+            50% { 
+                transform: scale(1.1); 
+                opacity: 1;
+            }
+        }
+        
+        /* Search Section */
+        .search-section {
+            background: #f8f9fa;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #e9ecef;
+            border-radius: 50px;
+            font-size: 1rem;
+            background: white;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+        
+        /* FAQ Content */
+        .faq-content {
+            background: white;
+            padding: 4rem 0;
+        }
+        
+        .faq-section {
+            margin-bottom: 4rem;
+        }
+        
+        .faq-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            text-align: center;
+        }
+        
+        .faq-item {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            background: #f8f9fa;
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #e9ecef;
+        }
+        
+        .faq-question.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .faq-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 1.5rem 2rem;
+            max-height: 1000px;
+        }
+        
+        .faq-answer p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .faq-answer ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .faq-answer li {
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: #f8f9fa;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .contact-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .contact-section p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #ecf0f1;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #667eea;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 2rem;
+            text-align: center;
+            color: #bdc3c7;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .hero-text {
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .faq-illustration {
+                width: 250px;
+                height: 150px;
+            }
+            
+            .intro-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .quick-link-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq-categories {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .faq-category {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .faq-question {
+                padding: 1rem 1.5rem;
+            }
+            
+            .faq-answer {
+                padding: 0 1.5rem;
+            }
+            
+            .faq-answer.active {
+                padding: 1rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <div class="logo-container">
+                        <div class="logo-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h2 class="logo-text">Cares Capital</h2>
+                    </div>
+                </div>
+                
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Small Business Loans <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="commercial-line-of-credit.html">Commercial Line of Credit</a></li>
+                                <li><a href="term-loans.html">Term Loans</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="free-credit-score.html">Free Credit Score</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="trends-report.html">Trends Report</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="who-we-are.html">Who We Are</a></li>
+                                <li><a href="success-stories.html">Success Stories</a></li>
+                                <li><a href="become-a-partner.html">Become a Partner</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="tel:9146508064" class="nav-link phone">914-650-8064</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" id="loginBtn" onclick="window.location.href='signup.html'">Sign In</button>
+                    <a href="signup.html" class="btn btn-primary">Create Account</a>
+                </div>
+                
+                <!-- Client Space (hidden by default) -->
+                <div class="nav-client-space" id="navClientSpace" style="display: none;">
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="client-details">
+                            <span class="client-name" id="navClientName">User</span>
+                            <span class="client-status">Connected</span>
+                        </div>
+                    </div>
+                    <div class="client-actions">
+                        <a href="dashboard.html" class="btn btn-primary btn-small">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                        <button onclick="logout()" class="btn btn-secondary btn-small">
+                            <i class="fas fa-sign-out-alt"></i> Sign Out
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Frequently Asked Questions</h1>
+                    <p class="subtitle">Get instant answers to the most common questions about our business loans, application process, and services.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">30+</div>
+                            <div class="stat-label">Questions Answered</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">7</div>
+                            <div class="stat-label">Categories</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support Available</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="faq-illustration">
+                        <div class="question-bubble">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Questions?</span>
+                        </div>
+                        <div class="answer-bubble">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Answers!</span>
+                        </div>
+                        <div class="connection-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h2>Quick Help Center</h2>
+                    <p>Our comprehensive FAQ section covers everything you need to know about Cares Capital Group's business financing solutions. From application requirements to funding timelines, find answers to help you make informed decisions for your business.</p>
+                </div>
+                <div class="quick-links">
+                    <h3>Popular Topics</h3>
+                    <div class="quick-link-grid">
+                        <a href="#application" class="quick-link">
+                            <i class="fas fa-file-alt"></i>
+                            <span>How to Apply</span>
+                        </a>
+                        <a href="#funding" class="quick-link">
+                            <i class="fas fa-clock"></i>
+                            <span>Funding Speed</span>
+                        </a>
+                        <a href="#products" class="quick-link">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>Loan Amounts</span>
+                        </a>
+                        <a href="#account" class="quick-link">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Account Access</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Navigation -->
+    <section class="faq-nav">
+        <div class="container">
+            <h3>Browse by Category</h3>
+            <div class="faq-categories">
+                <a href="#products" class="faq-category active">
+                    <i class="fas fa-box"></i>
+                    <span>Products</span>
+                </a>
+                <a href="#application" class="faq-category">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Application</span>
+                </a>
+                <a href="#funding" class="faq-category">
+                    <i class="fas fa-rocket"></i>
+                    <span>Funding</span>
+                </a>
+                <a href="#repayment" class="faq-category">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Repayment</span>
+                </a>
+                <a href="#account" class="faq-category">
+                    <i class="fas fa-user-cog"></i>
+                    <span>Account</span>
+                </a>
+                <a href="#term-loan" class="faq-category">
+                    <i class="fas fa-handshake"></i>
+                    <span>Term Loan Customers</span>
+                </a>
+                <a href="#line-of-credit" class="faq-category">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Line of Credit Customers</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="faq-content">
+        <div class="container">
+            <!-- Products Section -->
+            <div class="faq-section" id="products">
+                <h2>Products</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What products does Cares Capital Group offer?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer both business term loans and business lines of credit. When you apply with us, you'll use one application and we'll evaluate which product best fits your business's cash flow and funding needs.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What are Cares Capital Group's loan amounts and terms?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our term loan can offer from $5,000 to $250,000 in funding, with term lengths ranging from 18 to 24 months.</p>
+                        <p>Our line of credit has a maximum limit of $200,000. A line of credit is a form of revolving credit, so as you pay down your balance, those funds will become available to use again.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is Cares Capital Group an unsecured loan?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Cares Capital Group offers an unsecured line of credit. Our term loan is secured, but to provide maximum flexibility, we don't require any specific amount, type or value of collateral. Plus, there is no appraisal or specific assets required.</p>
+                        <p>Instead, we secure our term loans by placing a general lien on the assets of the business and they're backed by a personal guarantee. We don't take personal assets of the guarantors as collateral.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Section -->
+            <div class="faq-section" id="application">
+                <h2>Application</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I qualify for Care Capital Group financing?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To qualify for funding from Cares Capital Group, your business should have the following characteristics:</p>
+                        <ul>
+                            <li>Minimum one year in business.</li>
+                            <li>Minimum of $100,000 in annual revenue.</li>
+                            <li>Minimum 625 personal FICO score of the business owner.</li>
+                            <li>Business checking account.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Does Cares Capital Group perform a hard or soft inquiry on my credit?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>When determining eligibility, we'll perform a soft credit check on the business owner's personal credit.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What information do I need to apply?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Typically, we only require basic information about yourself and your business. We may ask for:</p>
+                        <ul>
+                            <li>Business Tax ID.</li>
+                            <li>Last three months of business bank statements.</li>
+                            <li>Social Security number of business owner(s).</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How does the application process work?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our application process is simple and typically takes about 10 minutes. You'll complete one application, and we'll evaluate which product is the best fit. You can apply online or over the phone by calling 914-650-8064.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What industries do you work with?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We work with more than 700 different kinds of businesses including restaurants, auto repair shops, healthcare professionals, contractors and many other service providers.</p>
+                        <p>We don't serve these restricted industries.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What are your rates and fees?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For term loans, your rate will be determined by the health of your business and cash flow. We charge an origination fee of 0% to 4% on your loan, and if you renew you may be eligible for subsequent reductions.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is there any obligation if I apply?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No. If you apply for funding from Cares Capital Group, there is no obligation to accept the loan offer. Your loan offer is valid for 30 days, at which time it expires.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Funding Section -->
+            <div class="faq-section" id="funding">
+                <h2>Funding</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How quickly can I receive a Cares Capital Group loan?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Cares Capital Group can deliver decisions in minutes and funding as soon as the same day.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How does term loan funding work?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We fund term loans through the Automated Clearinghouse (ACH) system. If you're approved, the funds will be deposited into your business bank as soon as the same day.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is line of credit instant funding?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If you're approved for a line of credit and have an eligible business debit card, instant funding can give you immediate access to your line of credit funds.</p>
+                        <p>We can transfer your funds within seconds or minutes, meaning you don't need to wait the typical one to two business days it takes for a standard ACH transfer.</p>
+                        <p>You can use instant funding to make draws whenever you need funds — including nights, weekends and holidays.</p>
+                        <p>Instant funding is available to our line of credit customers with an eligible debit card associated with the business bank account that we have on file.</p>
+                        <p>Sign in to your account to see if you qualify for instant funding.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is the difference between line of credit instant funding and ACH?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Instant funding is a funding method that uses a debit card network to process transactions. It usually takes seconds for funds to transfer through the network and reflect in your bank account. Funds are typically available to use immediately but may take up to 30 minutes.</p>
+                        <p>ACH is a standard bank transfer to your verified business checking account. It is subject to standard bank transfer timing and can take one to two business days.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What kind of debit card can be used for line of credit instant funding?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Instant funding transfers money using the debit card network. In order to use it, you will need an active debit card attached to your business checking account.</p>
+                        <p>We don't support transferring funds to a personal debit card. You need a business debit card associated with the business bank account that we have on file. If you don't have a debit card for the business bank account, you can still continue to make withdrawals using ACH.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is there a limit to an amount that I can draw using instant funding?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, currently Care Capital Group only supports daily draws of $10,000 or less via instant funding. For draws of more than $10,000 please use ACH.</p>
+                        <p>Keep in mind your bank may have its own daily, weekly or other transfer restrictions on push-to-debit transfers as well. (A push-to-debit transfer is the payment technology that makes instant funding possible.)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Repayment Section -->
+            <div class="faq-section" id="repayment">
+                <h2>Repayment</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How does repayment work?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Cares Capital Group will deduct payments from your business bank account on a daily, weekly or monthly basis, depending on what type of funding you're approved for.</p>
+                        <p>As a Care Capital Group customer, you'll have access to an online account where you can monitor your loan and payment activity.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Section -->
+            <div class="faq-section" id="account">
+                <h2>Account</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>I can't log in to my Care Capital Group account online, what do I do?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>After clicking on "Sign In" you can access your account by clicking "Forgot Credentials" and verifying your information. You may also have password reset instructions emailed to you by clicking on "Reset Password."</p>
+                        <p>If you're still having trouble accessing your account, please call (888) 556-3483 and our team can assist you.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Where can I see my current balance for my term loan or line of credit?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can see your current balance through your online account.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I change my bank information online?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Currently, you aren't able to update your bank information online. Please reach out to one of our loan advisors for more assistance at (888) 556-3483.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Cares Capital Group has filed a UCC on my business. How do I get this released?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Once your loan is paid in full, please email Cares Capital Group Customer Support at customerservice@carecapitalgroup.com with a written request to release the UCC.</p>
+                        <p>If you need payment support, please reach out to our loan advisors at (888) 556-3483.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What other small business financing options are available for me?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Small businesses have more financing options today than ever before, yet navigating the maze of loan types and lenders can make it challenging to choose the right loan and the right lender for your business. Visit our blog to learn about other funding options or you may qualify for a business line of credit with our partners at Headway Capital.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Term Loan Customers Section -->
+            <div class="faq-section" id="term-loan">
+                <h2>Term Loan Customers</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How much of my payments go toward principal and interest?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>This number will vary depending on the funding you receive and how close you are to paying off the balance. You can check your monthly statements, which you can access through your online account. If there isn't a statement available, give us a call at (888) 556-3483 and one of our loan advisors will be happy to help.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>I have questions about payments such as how to make additional payments or payment relief options.</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A Cares Capital Group loan advisor can help you with all your payment questions. Give us a call at (888) 556-3483 and we'll be happy to help.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>I believe there was an extra payment taken from my account. Why would I be seeing this?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>ACH transactions take 24 hours to process so your account will always draft the day after we initiate the payment.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>When am I eligible to reapply for funding?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You may be eligible for additional funding if you've reached six months of repayment or you've paid down 40% of your term loan — whichever comes first. However, you may want to speak with your loan advisor for more information before applying.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Line of Credit Customers Section -->
+            <div class="faq-section" id="line-of-credit">
+                <h2>Line of Credit Customers</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>There is a hold on my line of credit. Who should I contact?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Please contact our payment support team at (888) 556-3483.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>I don't need my line of credit anymore. How do I close it out?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If you need to permanently close your line of credit, please email customerservice@carecapitalgroup.com and request the closure.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Why don't I see the instant funding option on my account?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Cares Capital Group's instant funding is available for customers with eligible debit cards. If you'd like more information you can contact our loan advisors at (888) 556-3483.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Why did my instant funding withdrawal fail after being successful before?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Instant funding can fail for the following reasons:</p>
+                        <ul>
+                            <li>You recently got a new debit card issued for the account and you are still using an old debit card for the transaction.</li>
+                            <li>You have reached your account's daily, weekly or monthly limits imposed by your bank.</li>
+                            <li>Your bank might be temporarily suspending push-to-debit transfers.</li>
+                        </ul>
+                        <p>If you continue to see failed instant funding draws, we recommend reaching out to your bank.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>I used instant funding for my draw. Why don't I see the funds in my bank account right away?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>It can take up to 30 minutes for an instant funding withdrawal to reflect on your bank account.</p>
+                        <p>If you don't see the transfer after 30 minutes, please reach out to your bank. When speaking with your bank it's important to explain that the funds will appear as an original credit transaction (OCT), which is a direct credit to your debit card.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>I'm using my business debit card to register for instant funding but I'm getting the error "Your card issuer does not support fund transfer to business debit cards."</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Not all banks support push-to-debit transfers. Some banks only support instant funding for some of the debit cards and some banks don't support instant funding for any of their debit cards.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>I'm using my correct business address to register for instant funding but I'm getting the error "Please review all data fields and submit."</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To register your debit card, please make sure that:</p>
+                        <ul>
+                            <li>Your debit card has been activated.</li>
+                            <li>Your debit card hasn't expired.</li>
+                            <li>The address you entered matches the address on your bank statement.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>I'm on the draw page but I don't see the instant funding option. Will I still be able to make a draw using instant funding?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If the instant funding option isn't available then the service may be temporarily unavailable. For more information or support, you can contact our team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2>Unable to find the answer you're looking for?</h2>
+            <p>Contact Cares Capital Group</p>
+            <a href="#" class="contact-btn">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Small Business Loans</h4>
+                    <ul>
+                        <li><a href="commercial-line-of-credit.html">Commercial Line of Credit</a></li>
+                        <li><a href="term-loans.html">Term Loans</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="free-credit-score.html">Free Credit Score</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="trends-report.html">Trends Report</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="who-we-are.html">Who We Are</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#">Become a Partner</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>914-650-8064</p>
+                    <p>Monday - Friday<br>9 a.m. - 7:30 p.m. ET</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-badges">
+                    <img src="Footer cares capital group .JPG" alt="Cares Capital Group Accréditations" class="accreditation-image">
+                </div>
+                <p>&copy; 2025 Cares Capital Group. All rights reserved.</p>
+                <p>50 WATER STREET 10005 NEW-YORK</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const icon = this.querySelector('.faq-icon');
+                    
+                    // Close all other FAQs
+                    faqQuestions.forEach(otherQuestion => {
+                        if (otherQuestion !== this) {
+                            otherQuestion.classList.remove('active');
+                            otherQuestion.nextElementSibling.classList.remove('active');
+                            otherQuestion.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    
+                    // Toggle current FAQ
+                    this.classList.toggle('active');
+                    answer.classList.toggle('active');
+                    
+                    if (this.classList.contains('active')) {
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+            
+            // FAQ Category Navigation
+            const faqCategories = document.querySelectorAll('.faq-category');
+            const faqSections = document.querySelectorAll('.faq-section');
+            
+            faqCategories.forEach(category => {
+                category.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all categories
+                    faqCategories.forEach(cat => cat.classList.remove('active'));
+                    
+                    // Add active class to clicked category
+                    this.classList.add('active');
+                    
+                    // Get target section
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+        
+        // Mobile Menu Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                });
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!navToggle.contains(event.target) && !navMenu.contains(event.target)) {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

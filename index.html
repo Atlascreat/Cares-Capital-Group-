@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cares Capital - Small Business Loans</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="config.js"></script>
+    <style>
+        .logo-container {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-container:hover {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Animations et styles pour les sections */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        /* Recognition Section */
+        .recognition {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recognition::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(102, 126, 234, 0.05)"><path d="M0,50 Q250,0 500,50 T1000,50 L1000,100 L0,100 Z"/></svg>') bottom center/cover no-repeat;
+        }
+
+        .recognition h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2d3748;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .recognition h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .recognition-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .recognition-logo {
+            background: white;
+            padding: 1.5rem 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            font-weight: 600;
+            color: #4a5568;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .recognition-logo:nth-child(1) { animation-delay: 0.2s; }
+        .recognition-logo:nth-child(2) { animation-delay: 0.4s; }
+        .recognition-logo:nth-child(3) { animation-delay: 0.6s; }
+
+        .recognition-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            color: #667eea;
+        }
+
+        /* Funding Options Section */
+        .funding-options {
+            background: white;
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .funding-options h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2d3748;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .funding-options h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .funding-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .funding-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .funding-card:nth-child(1) { animation-delay: 0.2s; }
+        .funding-card:nth-child(2) { animation-delay: 0.4s; }
+
+        .funding-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .funding-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .funding-card h3 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .funding-features li {
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .funding-card:hover .funding-features li {
+            color: #667eea;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><path d="M0,50 Q250,0 500,50 T1000,50 L1000,100 L0,100 Z"/></svg>') bottom center/cover no-repeat;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.2s; }
+        .stat-item:nth-child(2) { animation-delay: 0.4s; }
+        .stat-item:nth-child(3) { animation-delay: 0.6s; }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+
+        .stat-item:hover::before {
+            opacity: 1;
+            animation: shimmer 1.5s ease-in-out;
+        }
+
+        .stat-item:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            animation: countUp 1s ease-out;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            background: #f8fafc;
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .why-choose h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2d3748;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .why-choose h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .why-card:nth-child(1) { animation-delay: 0.2s; }
+        .why-card:nth-child(2) { animation-delay: 0.4s; }
+        .why-card:nth-child(3) { animation-delay: 0.6s; }
+
+        .why-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .why-card h3 {
+            color: #2d3748;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* What Can You Do Section */
+        .what-can-do {
+            background: white;
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .what-can-do h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2d3748;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .what-can-do h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .what-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .what-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .what-item:nth-child(1) { animation-delay: 0.1s; }
+        .what-item:nth-child(2) { animation-delay: 0.2s; }
+        .what-item:nth-child(3) { animation-delay: 0.3s; }
+        .what-item:nth-child(4) { animation-delay: 0.4s; }
+        .what-item:nth-child(5) { animation-delay: 0.5s; }
+        .what-item:nth-child(6) { animation-delay: 0.6s; }
+        .what-item:nth-child(7) { animation-delay: 0.7s; }
+        .what-item:nth-child(8) { animation-delay: 0.8s; }
+
+        .what-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .what-item h4 {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* Process Section */
+        .process {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .process h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2d3748;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .process h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .process-step:nth-child(1) { animation-delay: 0.2s; }
+        .process-step:nth-child(2) { animation-delay: 0.4s; }
+        .process-step:nth-child(3) { animation-delay: 0.6s; }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Requirements Section */
+        .requirements {
+            background: white;
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .requirements h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2d3748;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .requirements h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .requirement-item {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .requirement-item:nth-child(1) { animation-delay: 0.2s; }
+        .requirement-item:nth-child(2) { animation-delay: 0.4s; }
+        .requirement-item:nth-child(3) { animation-delay: 0.6s; }
+        .requirement-item:nth-child(4) { animation-delay: 0.8s; }
+
+        .requirement-item:hover {
+            border-color: #667eea;
+            transform: scale(1.05);
+        }
+
+        .requirement-item h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            color: white;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.05)"><path d="M0,50 Q250,0 500,50 T1000,50 L1000,100 L0,100 Z"/></svg>') bottom center/cover no-repeat;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .contact h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 2px;
+        }
+
+        .contact-phone {
+            display: inline-block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffd700;
+            text-decoration: none;
+            margin: 2rem 0;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .contact-phone:hover {
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .contact-hours {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .recognition-logos {
+                gap: 1.5rem;
+            }
+            
+            .recognition-logo {
+                padding: 1rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .funding-grid, .stats-grid, .why-grid, .what-grid, .process-steps, .requirements-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .stat-item h3 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html" class="logo-container">
+                        <div class="logo-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h2 class="logo-text">Cares Capital</h2>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Small Business Loans <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="commercial-line-of-credit.html">Commercial Line of Credit</a></li>
+                                <li><a href="term-loans.html">Term Loans</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="free-credit-score.html">Free Credit Score</a></li>
+                                <li><a href="trends-report.html">Trends Report</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="who-we-are.html">Who We Are</a></li>
+                                <li><a href="success-stories.html">Success Stories</a></li>
+                                <li><a href="become-a-partner.html">Become a Partner</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="tel:9146508064" class="nav-link phone">914-650-8064</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" id="loginBtn" onclick="window.location.href='signup.html'">Sign In</button>
+                    <a href="signup.html" class="btn btn-primary">Create Account</a>
+                </div>
+                
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Business funding — designed for simplicity.</h1>
+                    <p>Apply in minutes. Receive funds as soon as 24 hours later.*</p>
+                    <div class="hero-buttons">
+                        <a href="https://cares-capital-group.formaloo.co/xeo282" target="_blank" class="btn btn-primary btn-large">Apply Now</a>
+                    </div>
+                    <p class="existing-customer">Existing customer? <a href="signup.html">Sign in</a></p>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-visual">
+                        <div class="chart-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="money-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recognition Section -->
+    <section class="recognition">
+        <div class="container">
+            <h2>Recognized as "Best for Short-Term Loans" by industry experts.</h2>
+            <div class="recognition-logos">
+                <div class="recognition-logo">Forbes Advisor</div>
+                <div class="recognition-logo">NerdWallet</div>
+                <div class="recognition-logo">LendingTree</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funding Options -->
+    <section class="funding-options">
+    <div class="container">
+            <h2>Funding options designed for you.</h2>
+            <div class="funding-grid">
+                <div class="funding-card">
+                    <h3>Cares Line of Credit</h3>
+                    <p>A revolving line of credit you can use 24/7 to receive funds in seconds.*</p>
+                    <ul class="funding-features">
+                        <li>• Credit limits from $6,000 to $100,000</li>
+                        <li>• Flexible repayment terms of 12, 18, or 24 months</li>
+                        <li>• Ideal for keeping funds available</li>
+                    </ul>
+                    <a href="commercial-line-of-credit.html" class="btn btn-primary">Learn More</a>
+                </div>
+                
+                <div class="funding-card">
+                    <h3>Cares Term Loan</h3>
+                    <p>A one-time lump sum with the option to potentially request more.</p>
+                    <ul class="funding-features">
+                        <li>• Loan amounts from $5,000 to $250,000</li>
+                        <li>• Repayment terms up to 24 months</li>
+                        <li>• Ideal for larger investments in your business</li>
+                    </ul>
+                    <a href="term-loans.html" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>150K+</h3>
+                    <p>Businesses funded since 2006</p>
+                </div>
+                <div class="stat-item">
+                    <h3>$15 Billion</h3>
+                    <p>delivered in the United States</p>
+                </div>
+                <div class="stat-item">
+                    <h3>A+</h3>
+                    <p>Rating with Better Business Bureau</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <h2>Discover why business owners choose us.</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <h3>Simple process</h3>
+                    <p>You can work directly with Cares from application to funding, without going through a third party.</p>
+                </div>
+                
+                <div class="why-card">
+                    <h3>Fast funding</h3>
+                    <p>Lines of credit can fund instantly.* Term loans can fund the same day.†</p>
+        </div>
+        
+                <div class="why-card">
+                    <h3>No strict credit check</h3>
+                    <p>Check your eligibility without affecting your credit score.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Can You Do -->
+    <section class="what-can-do">
+        <div class="container">
+            <h2>What can you do with Cares funding?</h2>
+            <p style="text-align: center; margin-bottom: 3rem; color: #6b7280;">Enjoy the benefits of working directly with Cares. No matter your goal, our internal loan advisors can help you choose a funding solution — no middleman, no delays.</p>
+            
+            <div class="what-grid">
+                <div class="what-item">
+                    <h4>Buy inventory</h4>
+                </div>
+                <div class="what-item">
+                    <h4>Cover payroll</h4>
+                </div>
+                <div class="what-item">
+                    <h4>Expand or renovate</h4>
+                </div>
+                <div class="what-item">
+                    <h4>Launch marketing campaigns</h4>
+                </div>
+                <div class="what-item">
+                    <h4>Stabilize cash flow</h4>
+                </div>
+                <div class="what-item">
+                    <h4>Upgrade equipment</h4>
+                </div>
+                <div class="what-item">
+                    <h4>Hire more employees</h4>
+                </div>
+                <div class="what-item">
+                    <h4>Consolidate business debt</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <h2>Funding that moves at your pace.</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Complete the application.</h3>
+                    <p>Our simplified process is designed to be completed in just a few minutes.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Get a decision.</h3>
+                    <p>Work with an expert loan advisor to choose the best option for you.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Receive your funds.</h3>
+                    <p>Sign your contract and receive funds as soon as the same day.†</p>
+                </div>
+            </div>
+            
+            <a href="https://cares-capital-group.formaloo.co/xeo282" target="_blank" class="btn btn-primary">Apply Now</a>
+        </div>
+    </section>
+
+    <!-- Requirements -->
+    <section class="requirements">
+        <div class="container">
+            <h2>Are we a good fit? Check our minimum requirements.**</h2>
+            <div class="requirements-grid">
+                <div class="requirement-item">
+                    <h3>1</h3>
+                    <p>year in business</p>
+                </div>
+                <div class="requirement-item">
+                    <h3>Business</h3>
+                    <p>checking account</p>
+                </div>
+                <div class="requirement-item">
+                    <h3>$100K</h3>
+                    <p>annual business revenue</p>
+                </div>
+                <div class="requirement-item">
+                    <h3>625</h3>
+                    <p>personal FICO® score</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+        <div class="container">
+            <h2>We speak small business fluently — and are ready to take your call.</h2>
+            <p>You don't need to be an expert in small business loans. Our team of U.S.-based loan advisors is here to help you every step of the way.</p>
+            
+            <a href="tel:9146508064" class="contact-phone">914-650-8064</a>
+            <p class="contact-hours">Monday – Friday<br>9 AM – 7:30 PM ET</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Cares Capital</h3>
+                    <h4>Small Business Loans</h4>
+                    <ul>
+                        <li><a href="commercial-line-of-credit.html">Commercial Line of Credit</a></li>
+                        <li><a href="term-loans.html">Term Loan</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="free-credit-score.html">Free Credit Score</a></li>
+                        <li><a href="trends-report.html">Trends Report</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="who-we-are.html">Who We Are</a></li>
+                        <li><a href="become-a-partner.html">Become a Partner</a></li>
+                        <li><a href="#">In the Media</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Security Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-badges">
+                    <img src="Footer cares capital group .JPG" alt="Cares Capital Group Accréditations" class="accreditation-image">
+                </div>
+                <p>© 2025 Cares®. All rights reserved.</p>
+                <p class="footer-address">50 WATER STREET 10005 NEW-YORK</p>
+        </div>
+    </div>
+    </footer>
+
+    <script>
+        // Gestion des boutons
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            window.location.href = 'signup.html';
+        });
+        
+        // Mobile menu toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // Animations au scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Observer pour les animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observer tous les éléments animés
+            document.querySelectorAll('.recognition, .funding-options, .stats, .why-choose, .what-can-do, .process, .requirements, .contact').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'all 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Animation de comptage pour les statistiques
+            function animateCounter(element, target, duration = 2000) {
+                let start = 0;
+                const increment = target / (duration / 16);
+                
+                function updateCounter() {
+                    start += increment;
+                    if (start < target) {
+                        element.textContent = Math.floor(start).toLocaleString();
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        element.textContent = target.toLocaleString();
+                    }
+                }
+                
+                updateCounter();
+            }
+
+            // Observer pour les statistiques
+            const statsObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const statNumbers = entry.target.querySelectorAll('.stat-item h3');
+                        statNumbers.forEach(stat => {
+                            const text = stat.textContent;
+                            if (text.includes('150K+')) {
+                                stat.textContent = '0+';
+                                setTimeout(() => animateCounter(stat, 150, 2000), 500);
+                            } else if (text.includes('$15 Billion')) {
+                                stat.textContent = '$0';
+                                setTimeout(() => animateCounter(stat, 15, 2000), 1000);
+                            } else if (text.includes('A+')) {
+                                stat.textContent = 'A';
+                                setTimeout(() => {
+                                    stat.textContent = 'A+';
+                                    stat.style.animation = 'pulse 0.5s ease-in-out';
+                                }, 1500);
+                            }
+                        });
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const statsSection = document.querySelector('.stats');
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+        });
+    </script>
+</body>
+</html>

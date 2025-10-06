@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who We Are - Cares Capital Group</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: #ffffff;
+            color: #2c3e50;
+            padding: 4rem 0 3rem 0;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            color: #2c3e50;
+            letter-spacing: -0.01em;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: #6c757d;
+            font-weight: 400;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-description {
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #6c757d;
+        }
+        
+        .hero-description p {
+            margin-bottom: 1.2rem;
+            font-weight: 400;
+        }
+        
+        .hero-description p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .hero .cta-button {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            border: 1px solid #2c3e50;
+        }
+        
+        .hero .cta-button:hover {
+            background: #34495e;
+            border-color: #34495e;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            padding: 3rem 0;
+            background: #ffffff;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 0;
+            border: 1px solid #e9ecef;
+            transition: all 0.2s ease;
+        }
+        
+        .stat-item:hover {
+            background: #ffffff;
+            border-color: #dee2e6;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: 4rem 0;
+            background: #ffffff;
+        }
+        
+        .features-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .features-section .subtitle {
+            text-align: center;
+            font-size: 1rem;
+            color: #6c757d;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            text-align: left;
+            padding: 1.5rem;
+            border: 1px solid #e9ecef;
+            background: #ffffff;
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: #f8f9fa;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0 1rem 0;
+            color: #2c3e50;
+            font-size: 1.5rem;
+            border: 1px solid #e9ecef;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+        }
+        
+        .feature-card p {
+            color: #6c757d;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+        
+        /* Credit Section */
+        .credit-section {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+        
+        .credit-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+        
+        .credit-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .credit-feature {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .credit-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .credit-feature h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .credit-feature p {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+        
+        /* Company Section */
+        .company-section {
+            padding: 6rem 0;
+            background: white;
+            text-align: center;
+        }
+        
+        .company-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+        
+        .company-section p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+        
+        .testimonials-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .testimonial-company {
+            color: #667eea;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .credit-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <div class="logo-container">
+                        <div class="logo-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h2 class="logo-text">Cares Capital</h2>
+                    </div>
+                </div>
+                
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Small Business Loans <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="commercial-line-of-credit.html">Commercial Line of Credit</a></li>
+                                <li><a href="term-loans.html">Term Loans</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="free-credit-score.html">Free Credit Score</a></li>
+                                <li><a href="trends-report.html">Trends Report</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="who-we-are.html">Who We Are</a></li>
+                                <li><a href="success-stories.html">Success Stories</a></li>
+                                <li><a href="become-a-partner.html">Become a Partner</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="tel:9146508064" class="nav-link phone">914-650-8064</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" id="loginBtn" onclick="window.location.href='signup.html'">Sign In</button>
+                    <a href="signup.html" class="btn btn-primary">Create Account</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Why Cares Capital Group?</h1>
+            <p class="subtitle">Your business is our business.</p>
+            <div class="hero-description">
+                <p>For over 15 years, Cares Capital Group has been the trusted partner for small businesses across America. We understand that every business is unique, and that's why we've built our entire platform around providing flexible, fast, and transparent financing solutions that help you grow on your own terms.</p>
+                <p>From restaurants and retail stores to professional services and manufacturing, we've helped over 150,000 businesses access the capital they need to thrive. Our commitment to innovation, security, and exceptional customer service has made us a leader in small business lending.</p>
+            </div>
+            <a href="signup.html" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">150K+</span>
+                    <span class="stat-label">Businesses funded since 2006</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">$15 Billion</span>
+                    <span class="stat-label">delivered across the U.S.</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">A+ Rating</span>
+                    <span class="stat-label">with the Better Business Bureau</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2>We're here to help you succeed on your own terms.</h2>
+            <p class="subtitle">Discover what makes Cares Capital Group the trusted choice for small business financing.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Simple Process</h3>
+                    <p>Getting funds through Cares Capital Group is fast and simple. Our application takes as little as 10 minutes and you can receive a decision and your funds the same day.†</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Tailored Options</h3>
+                    <p>We offer a business term loan and a business line of credit to help meet your unique funding needs, and can tailor your repayment terms to fit your business.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Digital Security</h3>
+                    <p>Cares Capital Group is fully dedicated to protecting the safety and security of our customers and their data. Visit our security center to see how we keep your information safe.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Real People</h3>
+                    <p>As a Cares Capital Group customer, you'll get a dedicated U.S.-based loan advisor (available five days a week) to help you through the entire process.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Transparent Pricing</h3>
+                    <p>Make informed decisions with our Cares Capital Group Loan Comparison Tool. It gives you a comprehensive breakdown of your cost of capital — including all the key terms you need to evaluate potential loan offers.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Loyalty Perks</h3>
+                    <p>If you renew, we'll waive all remaining interest on your original term loan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credit Section -->
+    <section class="credit-section">
+        <div class="container">
+            <h2>The credit your business deserves.</h2>
+            
+            <div class="credit-features">
+                <div class="credit-feature">
+                    <h3>No hard credit pulls</h3>
+                    <p>Check your eligibility without affecting your credit score.</p>
+                </div>
+                
+                <div class="credit-feature">
+                    <h3>Fast funding</h3>
+                    <p>Lines of credit can fund instantly.* Term loans can fund the same day.†</p>
+                </div>
+                
+                <div class="credit-feature">
+                    <h3>Build business credit history</h3>
+                    <p>We report to business credit bureaus, which helps build business credit history with on-time payments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Section -->
+    <section class="company-section">
+        <div class="container">
+            <h2>We're a top-rated online small business lender.</h2>
+            <p>Cares Capital Group is part of the publicly traded company Enova International, Inc. (NYSE:ENVA). We've delivered over $15 billion in small business loans across the U.S.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>Business owners like you love Care Capital Group.</h2>
+            <p class="subtitle">See how Cares Capital Group has helped thousands of businesses succeed — on their own terms.</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Cares Capital Group made it easy to get the funding we needed to expand our restaurant. The process was quick and the team was incredibly helpful."</p>
+                    <div class="testimonial-author">Sarah Johnson</div>
+                    <div class="testimonial-company">Owner, Johnson's Bistro</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The transparency and speed of Cares Capital Group's process was exactly what we needed. We got our funds the same day we applied."</p>
+                    <div class="testimonial-author">Michael Chen</div>
+                    <div class="testimonial-company">CEO, Tech Solutions Inc.</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"As a small business owner, I appreciate having a dedicated loan advisor who understands my business needs. Care Capital Group delivers on their promises."</p>
+                    <div class="testimonial-author">Lisa Rodriguez</div>
+                    <div class="testimonial-company">Founder, Rodriguez Consulting</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Small Business Loans</h3>
+                    <ul>
+                        <li><a href="commercial-line-of-credit.html">Commercial Line of Credit</a></li>
+                        <li><a href="term-loans.html">Term Loans</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="free-credit-score.html">Free Credit Score</a></li>
+                        <li><a href="trends-report.html">Trends Report</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="who-we-are.html">Who We Are</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#">Become a Partner</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> 914-650-8064</p>
+                    <p><i class="fas fa-clock"></i> Monday - Friday<br>9 a.m. - 7:30 p.m. ET</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cares Capital Group. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Security Policy</a>
+                </div>
+                <div class="footer-badges">
+                    <img src="Footer cares capital group .JPG" alt="Cares Capital Group Accréditations" class="accreditation-image">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>

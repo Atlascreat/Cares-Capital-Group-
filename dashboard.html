@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Cares Capital Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Supabase sera chargé dynamiquement -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: #1e40af;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .navbar-brand:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .exit-btn {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .exit-btn:hover {
+            background: #b91c1c;
+            transform: translateY(-1px);
+        }
+
+        /* Layout */
+        .dashboard-layout {
+            display: flex;
+            min-height: calc(100vh - 80px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: white;
+            color: #1e293b;
+            padding: 1rem 0;
+            position: sticky;
+            top: 80px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            border-right: 1px solid #e2e8f0;
+        }
+        
+        .sidebar-nav {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 2rem;
+            color: #64748b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            background: #f1f5f9;
+            color: #1e40af;
+            border-left-color: #1e40af;
+        }
+        
+        .nav-link.active {
+            background: #eff6ff;
+            color: #1e40af;
+            border-left-color: #1e40af;
+            font-weight: 600;
+        }
+        
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            text-align: center;
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            background: #f8fafc;
+        }
+
+        /* Section Content */
+        .section-content {
+            display: none;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        .welcome-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        .welcome-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+        }
+        
+        .welcome-subtitle {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+        
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .dashboard-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .card-icon {
+            width: 24px;
+            height: 24px;
+            color: #1e40af;
+        }
+        
+        /* Credit Section */
+        .credit-amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 0.5rem;
+        }
+        
+        .credit-label {
+            color: #64748b;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .credit-actions {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #1e40af;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .btn-secondary:hover {
+            background: #e2e8f0;
+        }
+        
+        /* User Info */
+        .user-info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .user-info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .user-info-label {
+            font-weight: 500;
+            color: #475569;
+        }
+        
+        .user-info-value {
+            color: #1e293b;
+            font-weight: 600;
+        }
+        
+        .verified-badge {
+            background: #dcfce7;
+            color: #166534;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .unverified-badge {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .action-btn {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #1e293b;
+        }
+        
+        .action-btn:hover {
+            border-color: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px 0 rgba(30, 64, 175, 0.15);
+        }
+        
+        .action-icon {
+            font-size: 2rem;
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+        }
+
+        .action-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .action-desc {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        
+        /* Chart Container */
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+            margin: 1rem 0;
+        }
+        
+        .chart-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .chart-info {
+            flex: 1;
+        }
+        
+        .chart-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+        
+        .legend-text {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        
+        .legend-value {
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #64748b;
+        }
+        
+        .spinner {
+            border: 4px solid #f1f5f9;
+            border-top: 4px solid #1e40af;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Error */
+        .error {
+            background: #fef2f2;
+            color: #dc2626;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #fecaca;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+            
+            .dashboard-layout {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                padding: 0.5rem 0;
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            
+            .sidebar-nav {
+                display: flex;
+                overflow-x: auto;
+                padding: 0 1rem;
+            }
+            
+            .nav-item {
+                margin-bottom: 0;
+                margin-right: 0.5rem;
+                flex-shrink: 0;
+            }
+            
+            .nav-link {
+                padding: 0.5rem 1rem;
+                white-space: nowrap;
+            }
+            
+            .main-content {
+                padding: 1rem;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .credit-actions {
+                flex-direction: column;
+            }
+            
+            .chart-wrapper {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .chart-container {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">
+            <i class="fas fa-building"></i>
+            Cares Capital Group
+        </a>
+        <button class="exit-btn" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+        </button>
+    </nav>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <ul class="sidebar-nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" data-section="overview">
+                        <i class="fas fa-tachometer-alt nav-icon"></i>
+                        Overview
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-section="credit">
+                        <i class="fas fa-credit-card nav-icon"></i>
+                        Credit & Finance
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-section="profile">
+                        <i class="fas fa-user nav-icon"></i>
+                        My Profile
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-section="documents">
+                        <i class="fas fa-file-alt nav-icon"></i>
+                        My Documents
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Loading State -->
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Loading your client space...</p>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div id="dashboard" style="display: none;">
+                <!-- Overview Section -->
+                <div class="section-content active" id="overview-section">
+                    <div class="welcome-section">
+                        <h1 class="welcome-title">Welcome to your client space</h1>
+                        <p class="welcome-subtitle">Manage your finances and access your services</p>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- Credit Summary -->
+                        <div class="dashboard-card">
+                            <h2 class="card-title">
+                                <i class="fas fa-credit-card card-icon"></i>
+                                Available Credit
+                            </h2>
+                            <div class="credit-amount" id="credit-amount">$0</div>
+                            <div class="credit-label">Available amount</div>
+                            <div class="credit-actions">
+                                <button class="btn btn-primary" onclick="requestCredit()">
+                                    <i class="fas fa-plus"></i>
+                                    Request Credit
+                                </button>
+                                <button class="btn btn-secondary" onclick="viewCreditHistory()">
+                                    <i class="fas fa-history"></i>
+                                    History
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Quick Stats -->
+                        <div class="dashboard-card">
+                            <h2 class="card-title">
+                                <i class="fas fa-chart-line card-icon"></i>
+                                Quick Stats
+                            </h2>
+                            <div class="user-info-item">
+                                <span class="user-info-label">Last login</span>
+                                <span class="user-info-value" id="last-login">Today</span>
+                            </div>
+                            <div class="user-info-item">
+                                <span class="user-info-label">Account status</span>
+                                <span class="user-info-value">
+                                    <span class="verified-badge">✓ Active</span>
+                                </span>
+                            </div>
+                            <div class="user-info-item">
+                                <span class="user-info-label">Active loans</span>
+                                <span class="user-info-value" id="active-loans-display">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Credit Chart in Overview -->
+                    <div class="dashboard-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-chart-pie card-icon"></i>
+                            Credit Distribution
+                        </h2>
+                        <div class="chart-wrapper">
+                            <div class="chart-info">
+                                <div class="chart-container">
+                                    <canvas id="creditChartOverview"></canvas>
+                                </div>
+                            </div>
+                            <div class="chart-legend">
+                                <div class="legend-item">
+                                    <div class="legend-color" style="background-color: #1e40af;"></div>
+                                    <div>
+                                        <div class="legend-text">Available Credit</div>
+                                        <div class="legend-value" id="available-credit-overview">$0</div>
+                                    </div>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color" style="background-color: #3b82f6;"></div>
+                                    <div>
+                                        <div class="legend-text">Used Credit</div>
+                                        <div class="legend-value" id="used-credit-overview">$0</div>
+                                    </div>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color" style="background-color: #93c5fd;"></div>
+                                    <div>
+                                        <div class="legend-text">Pending</div>
+                                        <div class="legend-value" id="pending-credit-overview">$0</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="dashboard-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-bolt card-icon"></i>
+                            Quick Actions
+                        </h2>
+                        <div class="quick-actions">
+                            <a href="#" class="action-btn" onclick="showSection('documents')">
+                                <div class="action-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="action-title">My Documents</div>
+                                <div class="action-desc">View your documents</div>
+                            </a>
+                            <a href="#" class="action-btn" onclick="showSection('credit')">
+                                <div class="action-icon">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <div class="action-title">Manage Credit</div>
+                                <div class="action-desc">Request or manage your credit</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Credit Section -->
+                <div class="section-content" id="credit-section">
+                    <div class="welcome-section">
+                        <h1 class="welcome-title">Credit & Finance</h1>
+                        <p class="welcome-subtitle">Manage your credits and finances</p>
+                    </div>
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <h2 class="card-title">
+                                <i class="fas fa-credit-card card-icon"></i>
+                                Available Credit
+                            </h2>
+                            <div class="credit-amount" id="credit-amount-2">$0</div>
+                            <div class="credit-label">Available amount</div>
+                            <div class="credit-actions">
+                                <button class="btn btn-primary" onclick="requestCredit()">
+                                    <i class="fas fa-plus"></i>
+                                    Request Credit
+                                </button>
+                                <button class="btn btn-secondary" onclick="viewCreditHistory()">
+                                    <i class="fas fa-history"></i>
+                                    History
+                                </button>
+                            </div>
+                        </div>
+                        <div class="dashboard-card">
+                            <h2 class="card-title">
+                                <i class="fas fa-chart-pie card-icon"></i>
+                                Credit Distribution
+                            </h2>
+                            <div class="chart-wrapper">
+                                <div class="chart-info">
+                                    <div class="chart-container">
+                                        <canvas id="creditChart"></canvas>
+                                    </div>
+                                </div>
+                                <div class="chart-legend">
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background-color: #1e40af;"></div>
+                                        <div>
+                                            <div class="legend-text">Available Credit</div>
+                                            <div class="legend-value" id="available-credit">$0</div>
+                                        </div>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background-color: #3b82f6;"></div>
+                                        <div>
+                                            <div class="legend-text">Used Credit</div>
+                                            <div class="legend-value" id="used-credit">$0</div>
+                                        </div>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background-color: #93c5fd;"></div>
+                                        <div>
+                                            <div class="legend-text">Pending</div>
+                                            <div class="legend-value" id="pending-credit">$0</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Section -->
+                <div class="section-content" id="profile-section">
+                    <div class="welcome-section">
+                        <h1 class="welcome-title">My Profile</h1>
+                        <p class="welcome-subtitle">Manage your personal information</p>
+                    </div>
+                    <div class="dashboard-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-user card-icon"></i>
+                            Personal Information
+                        </h2>
+                        <div id="user-details">
+                            <!-- User details will be populated here -->
+                        </div>
+                        <div class="credit-actions">
+                            <button class="btn btn-primary" onclick="updateProfile()">
+                                <i class="fas fa-user-edit"></i>
+                                Edit Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documents Section -->
+                <div class="section-content" id="documents-section">
+                    <div class="welcome-section">
+                        <h1 class="welcome-title">My Documents</h1>
+                        <p class="welcome-subtitle">View and manage your documents</p>
+                    </div>
+                    <div class="dashboard-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-file-alt card-icon"></i>
+                            My Documents
+                        </h2>
+                        <div id="documents-list">
+                            <div class="loading">
+                                <div class="spinner"></div>
+                                <p>Loading your documents...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Error State -->
+            <div id="error" class="error" style="display: none;">
+                <p>Dashboard loading error</p>
+            </div>
+                    </div>
+    </div>
+
+    <script>
+        // Configuration Auth0
+        const AUTH0_DOMAIN = 'dev-8pbxwvmgwfqemvol.us.auth0.com';
+        const AUTH0_CLIENT_ID = 'XKG3cm17aDx8ZfT72jrI3fYyHH5hN8Lt';
+        
+        // Supabase Configuration
+        const SUPABASE_URL = 'https://nekaqgbntiwbxslfrxkj.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5la2FxZ2JudGl3YnhzbGZyeGtqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc1OTk1NjYsImV4cCI6MjA3MzE3NTU2Nn0.XMfHIqVjw2PJWCLBBhihYJfCVJL5mvDiok_7TOw-AVY';
+        
+        let currentUser = null;
+        let supabaseClient = null;
+        
+        // Initialize Supabase
+        async function initSupabase() {
+            try {
+                console.log('🔄 Initializing Supabase...');
+                
+                // Charger le SDK Supabase dynamiquement
+                const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
+                
+                supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+                    auth: {
+                        autoRefreshToken: true,
+                        persistSession: true,
+                        detectSessionInUrl: false
+                    }
+                });
+                console.log('✅ Supabase initialized');
+                return supabaseClient;
+            } catch (error) {
+                console.error('❌ Supabase initialization error:', error);
+                throw error;
+            }
+        }
+        
+        // Create user in Supabase if not exists
+        async function createUserInSupabase(auth0User) {
+            try {
+                console.log('🔄 Creating user in Supabase:', auth0User.sub);
+                
+                if (!supabaseClient) {
+                    await initSupabase();
+                }
+                
+                const { data, error } = await supabaseClient
+                    .from('users')
+                    .insert({
+                        user_id: auth0User.sub,
+                        email: auth0User.email,
+                        full_name: auth0User.name,
+                        available_credit: 0,
+                        total_credit: 0,
+                        active_loans: 0,
+                        created_at: new Date().toISOString()
+                    })
+                    .select()
+                    .single();
+                
+                if (error) {
+                    console.error('❌ Error creating user:', error);
+                    return null;
+                }
+                
+                console.log('✅ User created in Supabase:', data);
+                return data;
+            } catch (error) {
+                console.error('❌ Error creating user:', error);
+                return null;
+            }
+        }
+
+        // Get user data from Supabase
+        async function getUserDataFromSupabase(userId) {
+            try {
+                console.log('🔄 Fetching user data from Supabase for user:', userId);
+                
+                if (!supabaseClient) {
+                    await initSupabase();
+                }
+                
+                // Récupérer les champs spécifiques de votre table
+                const { data, error } = await supabaseClient
+                    .from('users')
+                    .select('user_id, email, full_name, company, phone, address, available_credit, total_credit, active_loans, next_payment')
+                    .eq('user_id', userId);
+                
+                console.log('🔍 Supabase response:', { data, error });
+                
+                // Prendre le premier résultat si plusieurs
+                const userData = data && data.length > 0 ? data[0] : null;
+                
+                if (error) {
+                    console.error('❌ Supabase query error:', error);
+                    return null;
+                }
+                
+                console.log('✅ User data retrieved:', userData);
+                return userData;
+            } catch (error) {
+                console.error('❌ Error fetching user data:', error);
+                return null;
+            }
+        }
+        
+        // Update dashboard with real data
+        async function updateDashboardWithRealData(user) {
+            try {
+                console.log('🔄 Updating dashboard with real data...');
+                
+                // Get user data from Supabase
+                let userData = await getUserDataFromSupabase(user.sub);
+                
+                // If user doesn't exist in Supabase, create them
+                if (!userData) {
+                    console.log('🔄 User not found in Supabase, creating new user...');
+                    userData = await createUserInSupabase(user);
+                }
+                
+                if (userData) {
+                    // Update credit amounts with real data
+                    const availableCredit = userData.available_credit || 0;
+                    const totalCredit = userData.total_credit || 0;
+                    const activeLoans = userData.active_loans || 0;
+                    const usedCredit = totalCredit - availableCredit;
+                    const pendingCredit = 0; // Pas de champ pending dans votre structure
+                    
+                    // Update credit displays
+                    document.getElementById('credit-amount').textContent = `$${availableCredit.toLocaleString()}`;
+                    document.getElementById('credit-amount-2').textContent = `$${availableCredit.toLocaleString()}`;
+                    
+                    // Update charts with real data
+                    updateCreditChart(availableCredit, usedCredit, pendingCredit);
+                    updateCreditChartOverview(availableCredit, usedCredit, pendingCredit);
+                    
+                    // Update last login (using today since no last_login field)
+                    document.getElementById('last-login').textContent = 'Today';
+                    
+                    // Update account status
+                    const statusElement = document.querySelector('.verified-badge');
+                    if (statusElement) {
+                        statusElement.textContent = '✓ Active';
+                    }
+                    
+                    // Update active loans
+                    const activeLoansElement = document.getElementById('active-loans-display');
+                    if (activeLoansElement) {
+                        activeLoansElement.textContent = activeLoans;
+                    }
+                    
+                    // Update next payment if available
+                    if (userData.next_payment) {
+                        const nextPaymentDate = new Date(userData.next_payment).toLocaleDateString();
+                        // You can add this to the UI if needed
+                        console.log('Next payment:', nextPaymentDate);
+                    }
+                    
+                    console.log('✅ Dashboard updated with real data');
+                } else {
+                    console.log('⚠️ No user data found, using default values');
+                    // Fallback to simulated data
+                    loadCreditAmount();
+                }
+            } catch (error) {
+                console.error('❌ Error updating dashboard:', error);
+                // Fallback to simulated data
+                loadCreditAmount();
+            }
+        }
+        
+        // Logout function
+        function logout() {
+            console.log('🚪 Logging out...');
+            
+            // Clear localStorage
+            localStorage.removeItem('auth0_user');
+            
+            // Mark as logged out
+            sessionStorage.setItem('user_logged_out', 'true');
+            
+            // Redirect to homepage
+            window.location.href = '/index.html';
+        }
+        
+        // Display user information
+        async function displayUserInfo(user) {
+            // Store current user globally
+            currentUser = user;
+            
+            // Initialize Supabase and load real data first
+            try {
+                await initSupabase();
+                let userData = await getUserDataFromSupabase(user.sub);
+                
+                // If user doesn't exist in Supabase, create them
+                if (!userData) {
+                    console.log('🔄 User not found in Supabase, creating new user...');
+                    userData = await createUserInSupabase(user);
+                }
+                
+                const userDetails = document.getElementById('user-details');
+                
+                if (userData) {
+                    // Display data from Supabase
+                    userDetails.innerHTML = `
+                        <div class="user-info-item">
+                            <span class="user-info-label">User ID</span>
+                            <span class="user-info-value">${userData.user_id || user.sub || 'Not available'}</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="user-info-label">Email</span>
+                            <span class="user-info-value">${userData.email || user.email || 'Not available'}</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="user-info-label">Full name</span>
+                            <span class="user-info-value">${userData.full_name || user.name || 'Not available'}</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="user-info-label">Company</span>
+                            <span class="user-info-value">${userData.company || 'Not available'}</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="user-info-label">Phone</span>
+                            <span class="user-info-value">${userData.phone || 'Not available'}</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="user-info-label">Address</span>
+                            <span class="user-info-value">${userData.address || 'Not available'}</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="user-info-label">Available Credit</span>
+                            <span class="user-info-value">$${(userData.available_credit || 0).toLocaleString()}</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="user-info-label">Total Credit</span>
+                            <span class="user-info-value">$${(userData.total_credit || 0).toLocaleString()}</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="user-info-label">Active Loans</span>
+                            <span class="user-info-value">${userData.active_loans || 0}</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="user-info-label">Next Payment</span>
+                            <span class="user-info-value">${userData.next_payment ? new Date(userData.next_payment).toLocaleDateString() : 'Not scheduled'}</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="user-info-label">Email verified</span>
+                            <span class="user-info-value">
+                                ${user.email_verified ? 
+                                    '<span class="verified-badge">✓ Verified</span>' : 
+                                    '<span class="unverified-badge">⚠ Not verified</span>'
+                                }
+                            </span>
+                        </div>
+                    `;
+                } else {
+                    // Fallback to Auth0 data only
+                    userDetails.innerHTML = `
+                        <div class="user-info-item">
+                            <span class="user-info-label">Email</span>
+                            <span class="user-info-value">${user.email || 'Not available'}</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="user-info-label">Full name</span>
+                            <span class="user-info-value">${user.name || 'Not available'}</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="user-info-label">User ID</span>
+                            <span class="user-info-value">${user.sub || 'Not available'}</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="user-info-label">Email verified</span>
+                            <span class="user-info-value">
+                                ${user.email_verified ? 
+                                    '<span class="verified-badge">✓ Verified</span>' : 
+                                    '<span class="unverified-badge">⚠ Not verified</span>'
+                                }
+                            </span>
+                        </div>
+                    `;
+                }
+                
+                // Update dashboard with real data
+                await updateDashboardWithRealData(user);
+                
+            } catch (error) {
+                console.error('❌ Error loading real data:', error);
+                // Fallback to Auth0 data only
+                const userDetails = document.getElementById('user-details');
+                userDetails.innerHTML = `
+                    <div class="user-info-item">
+                        <span class="user-info-label">Email</span>
+                        <span class="user-info-value">${user.email || 'Not available'}</span>
+                    </div>
+                    <div class="user-info-item">
+                        <span class="user-info-label">Full name</span>
+                        <span class="user-info-value">${user.name || 'Not available'}</span>
+                    </div>
+                    <div class="user-info-item">
+                        <span class="user-info-label">User ID</span>
+                        <span class="user-info-value">${user.sub || 'Not available'}</span>
+                    </div>
+                    <div class="user-info-item">
+                        <span class="user-info-label">Email verified</span>
+                        <span class="user-info-value">
+                            ${user.email_verified ? 
+                                '<span class="verified-badge">✓ Verified</span>' : 
+                                '<span class="unverified-badge">⚠ Not verified</span>'
+                            }
+                        </span>
+                    </div>
+                `;
+                // Fallback to simulated data
+                loadCreditAmount();
+            }
+        }
+        
+        // Global variables for charts
+        let creditChart = null;
+        let creditChartOverview = null;
+        
+        // Load credit amount (now uses real data from Supabase)
+        async function loadCreditAmount() {
+            try {
+                // Try to get real data first
+                if (currentUser) {
+                    await updateDashboardWithRealData(currentUser);
+                } else {
+                    // Fallback to simulated data if no user
+                    const creditAmount = Math.floor(Math.random() * 45000) + 5000;
+                    document.getElementById('credit-amount').textContent = `$${creditAmount.toLocaleString()}`;
+                    document.getElementById('credit-amount-2').textContent = `$${creditAmount.toLocaleString()}`;
+                    
+                    // Update both charts
+                    updateCreditChart(creditAmount);
+                    updateCreditChartOverview(creditAmount);
+                }
+            } catch (error) {
+                console.error('❌ Error loading credit amount:', error);
+                // Fallback to simulated data
+                const creditAmount = Math.floor(Math.random() * 45000) + 5000;
+                document.getElementById('credit-amount').textContent = `$${creditAmount.toLocaleString()}`;
+                document.getElementById('credit-amount-2').textContent = `$${creditAmount.toLocaleString()}`;
+                
+                updateCreditChart(creditAmount);
+                updateCreditChartOverview(creditAmount);
+            }
+        }
+        
+        // Create credit chart (Credit section)
+        function createCreditChart(availableCredit, usedCredit, pendingCredit) {
+            const ctx = document.getElementById('creditChart');
+            if (!ctx) return;
+            
+            // Destroy existing chart if it exists
+            if (creditChart) {
+                creditChart.destroy();
+            }
+            
+            creditChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Available Credit', 'Used Credit', 'Pending'],
+                    datasets: [{
+                        data: [availableCredit, usedCredit, pendingCredit],
+                        backgroundColor: [
+                            '#1e40af', // Dark blue for available
+                            '#3b82f6', // Medium blue for used
+                            '#93c5fd'  // Light blue for pending
+                        ],
+                        borderWidth: 0,
+                        cutout: '60%'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false // We use our custom legend
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.parsed;
+                                    return `${label}: $${value.toLocaleString()}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Create credit chart (Overview section)
+        function createCreditChartOverview(availableCredit, usedCredit, pendingCredit) {
+            const ctx = document.getElementById('creditChartOverview');
+            if (!ctx) return;
+            
+            // Destroy existing chart if it exists
+            if (creditChartOverview) {
+                creditChartOverview.destroy();
+            }
+            
+            creditChartOverview = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Available Credit', 'Used Credit', 'Pending'],
+                    datasets: [{
+                        data: [availableCredit, usedCredit, pendingCredit],
+                        backgroundColor: [
+                            '#1e40af', // Dark blue for available
+                            '#3b82f6', // Medium blue for used
+                            '#93c5fd'  // Light blue for pending
+                        ],
+                        borderWidth: 0,
+                        cutout: '60%'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false // We use our custom legend
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.parsed;
+                                    return `${label}: $${value.toLocaleString()}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Update credit chart (Credit section) - now uses real data
+        function updateCreditChart(availableCredit, usedCredit, pendingCredit) {
+            // Use real data if provided, otherwise simulate
+            if (typeof availableCredit === 'number' && typeof usedCredit === 'number' && typeof pendingCredit === 'number') {
+                // Real data provided
+                document.getElementById('available-credit').textContent = `$${availableCredit.toLocaleString()}`;
+                document.getElementById('used-credit').textContent = `$${usedCredit.toLocaleString()}`;
+                document.getElementById('pending-credit').textContent = `$${pendingCredit.toLocaleString()}`;
+                
+                createCreditChart(availableCredit, usedCredit, pendingCredit);
+            } else {
+                // Fallback to simulation
+                const totalCredit = availableCredit || Math.floor(Math.random() * 45000) + 5000;
+                const simAvailable = Math.floor(totalCredit * 0.6);
+                const simUsed = Math.floor(totalCredit * 0.25);
+                const simPending = totalCredit - simAvailable - simUsed;
+                
+                document.getElementById('available-credit').textContent = `$${simAvailable.toLocaleString()}`;
+                document.getElementById('used-credit').textContent = `$${simUsed.toLocaleString()}`;
+                document.getElementById('pending-credit').textContent = `$${simPending.toLocaleString()}`;
+                
+                createCreditChart(simAvailable, simUsed, simPending);
+            }
+        }
+        
+        // Update credit chart (Overview section) - now uses real data
+        function updateCreditChartOverview(availableCredit, usedCredit, pendingCredit) {
+            // Use real data if provided, otherwise simulate
+            if (typeof availableCredit === 'number' && typeof usedCredit === 'number' && typeof pendingCredit === 'number') {
+                // Real data provided
+                document.getElementById('available-credit-overview').textContent = `$${availableCredit.toLocaleString()}`;
+                document.getElementById('used-credit-overview').textContent = `$${usedCredit.toLocaleString()}`;
+                document.getElementById('pending-credit-overview').textContent = `$${pendingCredit.toLocaleString()}`;
+                
+                createCreditChartOverview(availableCredit, usedCredit, pendingCredit);
+            } else {
+                // Fallback to simulation
+                const totalCredit = availableCredit || Math.floor(Math.random() * 45000) + 5000;
+                const simAvailable = Math.floor(totalCredit * 0.6);
+                const simUsed = Math.floor(totalCredit * 0.25);
+                const simPending = totalCredit - simAvailable - simUsed;
+                
+                document.getElementById('available-credit-overview').textContent = `$${simAvailable.toLocaleString()}`;
+                document.getElementById('used-credit-overview').textContent = `$${simUsed.toLocaleString()}`;
+                document.getElementById('pending-credit-overview').textContent = `$${simPending.toLocaleString()}`;
+                
+                createCreditChartOverview(simAvailable, simUsed, simPending);
+            }
+        }
+        
+        // Navigate between sections
+        function showSection(sectionName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show requested section
+            const targetSection = document.getElementById(sectionName + '-section');
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+            
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-section') === sectionName) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // Initialize navigation
+        function initNavigation() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const section = this.getAttribute('data-section');
+                    showSection(section);
+                });
+            });
+        }
+        
+        // Quick actions
+        function requestCredit() {
+            alert('Credit request feature - To be implemented');
+        }
+        
+        function viewCreditHistory() {
+            alert('Credit history - To be implemented');
+        }
+        
+        function viewDocuments() {
+            alert('My documents - To be implemented');
+        }
+        
+        function contactSupport() {
+            alert('Customer support - To be implemented');
+        }
+        
+        function updateProfile() {
+            alert('Edit profile - To be implemented');
+        }
+        
+        function uploadDocument() {
+            alert('Document upload - To be implemented');
+        }
+        
+        // Handle Auth0 response manually (without SDK)
+        async function handleAuth0Response() {
+            try {
+                console.log('🔄 Processing Auth0 response...');
+                
+                // Check if there's a code in the URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const code = urlParams.get('code');
+                const error = urlParams.get('error');
+                
+                console.log('🔍 Auth0 Code:', code ? 'Present' : 'Absent');
+                console.log('🔍 Auth0 Error:', error || 'None');
+                
+                if (error) {
+                    throw new Error(`Auth0 Error: ${error}`);
+                }
+                
+                if (code) {
+                    console.log('✅ Auth0 code found, exchanging for token...');
+                    
+                    // Exchange code for token
+                    const tokenResponse = await fetch(`https://${AUTH0_DOMAIN}/oauth/token`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams({
+                            grant_type: 'authorization_code',
+                            client_id: AUTH0_CLIENT_ID,
+                            code: code,
+                            redirect_uri: window.location.origin + '/dashboard.html'
+                        })
+                    });
+                    
+                    if (!tokenResponse.ok) {
+                        throw new Error('Failed to exchange code');
+                    }
+                    
+                    const tokenData = await tokenResponse.json();
+                    console.log('✅ Token received:', tokenData);
+                    
+                    // Get user information
+                    const userResponse = await fetch(`https://${AUTH0_DOMAIN}/userinfo`, {
+                        headers: {
+                            'Authorization': `Bearer ${tokenData.access_token}`
+                        }
+                    });
+                    
+                    if (!userResponse.ok) {
+                        throw new Error('Failed to retrieve user data');
+                    }
+                    
+                    const user = await userResponse.json();
+                    console.log('👤 User:', user);
+                    
+                    // Store in localStorage
+                    localStorage.setItem('auth0_user', JSON.stringify(user));
+                    console.log('💾 Data stored');
+                    
+                    // Display dashboard
+                    displayUserInfo(user);
+                    loadCreditAmount();
+                    initNavigation();
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('dashboard').style.display = 'block';
+                    
+                    // Clean URL
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                    
+                    return;
+                }
+                
+                // If no code, check localStorage
+                const userData = localStorage.getItem('auth0_user');
+                if (userData) {
+                    console.log('✅ User found in localStorage');
+                    const user = JSON.parse(userData);
+                    displayUserInfo(user);
+                    loadCreditAmount();
+                    initNavigation();
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('dashboard').style.display = 'block';
+                    return;
+                }
+                
+                // No authentication found
+                throw new Error('No authentication found');
+                
+            } catch (error) {
+                console.error('❌ Authentication error:', error);
+                
+                // Redirect to Auth0
+                const auth0Url = `https://${AUTH0_DOMAIN}/authorize?response_type=code&client_id=${AUTH0_CLIENT_ID}&redirect_uri=${encodeURIComponent(window.location.origin + '/dashboard.html')}&scope=openid profile email&prompt=login`;
+                
+                console.log('🔄 Redirecting to Auth0...');
+                window.location.href = auth0Url;
+            }
+        }
+        
+        // Dashboard initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Dashboard initialization...');
+            handleAuth0Response();
+        });
+    </script>
+</body>
+</html>

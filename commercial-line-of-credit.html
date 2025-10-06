@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commercial Line of Credit - Cares Capital</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <div class="logo-container">
+                        <div class="logo-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h2 class="logo-text">Cares Capital</h2>
+                    </div>
+                </div>
+                
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Small Business Loans <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="commercial-line-of-credit.html">Commercial Line of Credit</a></li>
+                                <li><a href="term-loans.html">Term Loans</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="free-credit-score.html">Free Credit Score</a></li>
+
+                                <li><a href="trends-report.html">Trends Report</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="who-we-are.html">Who We Are</a></li>
+                                <li><a href="success-stories.html">Success Stories</a></li>
+                                <li><a href="become-a-partner.html">Become a Partner</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="tel:9146508064" class="nav-link phone">914-650-8064</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" id="loginBtn" onclick="window.location.href='signup.html'">Sign In</button>
+                    <a href="signup.html" class="btn btn-primary">Create Account</a>
+                </div>
+                
+                <!-- Client Space (hidden by default) -->
+                <div class="nav-client-space" id="navClientSpace" style="display: none;">
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="client-details">
+                            <span class="client-name" id="navClientName">User</span>
+                            <span class="client-status">Connected</span>
+                        </div>
+                    </div>
+                    <div class="client-actions">
+                        <a href="dashboard.html" class="btn btn-primary btn-small">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                        <button onclick="logout()" class="btn btn-secondary btn-small">
+                            <i class="fas fa-sign-out-alt"></i> Sign Out
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Business Line of Credit</h1>
+                    <p>Access fast, flexible working capital with a business line of credit.</p>
+                    <div class="hero-buttons">
+                        <a href="signup.html" class="btn btn-primary btn-large">Get Started</a>
+                        <div class="trustpilot-rating">
+                            <span>Trustpilot Logo 4.5 stars out of 5 stars TrustScore <strong>4.6</strong> | <strong>4674</strong> reviews</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-visual">
+                        <div class="chart-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="money-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Care Capital Group Business Lines of Credit Section -->
+    <section class="recognition">
+        <div class="container">
+            <h2>Cares Capital Group Business Lines of Credit</h2>
+            <div class="logos">
+                <div class="logo-item">
+                    <h3>Revolving</h3>
+                    <p>lines of credit from $6K - $200K</p>
+                </div>
+                <div class="logo-item">
+                    <h3>Flexible</h3>
+                    <p>repayment terms of 12, 18 or 24 months</p>
+                </div>
+                <div class="logo-item">
+                    <h3>Customizable</h3>
+                    <p>weekly or monthly payments</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is a business line of credit Section -->
+    <section class="funding-options">
+        <div class="container">
+            <h2>What is a business line of credit?</h2>
+            <div class="options-grid">
+                <div class="option-card">
+                    <div class="option-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Flexible Funding</h3>
+                    <p>A business line of credit is a flexible funding option that allows you to draw funds from a set credit limit. The funds are typically deposited as cash in your business checking account. You can often draw as much or as little as you need — and you'll typically only pay interest on what you borrow.◊ Similar to a business credit card, as you repay a revolving line of credit, the funds become available to borrow again.</p>
+                    <p>Because of these features, business lines of credit can be a great financing option for managing cash flow and funding long-term projects. They can also act as a safety net, ensuring you have access to working capital in the event of an emergency expense or surprise opportunity.</p>
+                    <p>Running a business takes money, and an Care Capital Group business line of credit gives you ongoing access to funds right at your fingertips.</p>
+                </div>
+                
+                <div class="option-card">
+                    <div class="option-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Benefits of an Cares Capital Group Line of Credit</h3>
+                    <ul class="option-features">
+                        <li><strong>Only pay for what you borrow</strong> - Withdraw what you need, when you need it.◊ You'll only be charged interest on the funds you draw.</li>
+                        <li><strong>Instant funding</strong> - Receive your money within seconds when you make a withdrawal — 24/7, even on nights and weekends.*</li>
+                        <li><strong>Build business credit history</strong> - We report to business credit bureaus, which helps build business credit history with on-time payments.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How does a business line of credit work Section -->
+    <section class="stats">
+        <div class="container">
+            <h2>How does a business line of credit work?</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">Flexible</div>
+                    <div class="stat-label">Unlike a small business loan that provides an upfront lump sum of cash, a small business line of credit lets you borrow funds up to a set credit limit, so you can draw what you need.◊ As you repay the outstanding balance, your available credit replenishes, so you can keep borrowing without reapplying.</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">$200K</div>
+                    <div class="stat-label">A small business line of credit from Care Capital Group can provide qualified borrowers with a credit limit up to $200,000. You can draw from your line and get money instantly — even when the banks are closed.*</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Withdraw what you need, when you need it◊ — you'll only pay for what you borrow. Plus, your on-time payments can help you build business credit history.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How do I apply for a business line of credit Section -->
+    <section class="why-choose">
+        <div class="container">
+            <h2>How do I apply for a business line of credit?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-stream"></i>
+                    </div>
+                    <h3>Step 1 - Complete the application</h3>
+                    <p>Our streamlined application process is designed to be completed in just minutes.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Step 2 - Get a decision</h3>
+                    <p>Work with an expert loan advisor to choose the best option for you.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Step 3 - Receive your funds</h3>
+                    <p>Sign your contract and get funds as soon as the same day.†</p>
+                </div>
+            </div>
+            <div class="process-cta">
+                <a href="https://cares-capital-group.formaloo.co/xeo282" target="_blank" class="btn btn-primary btn-large">Apply Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Are we a match Section -->
+    <section class="use-cases">
+        <div class="container">
+            <h2>Are we a match? Here's what's required to apply.**</h2>
+            <div class="use-cases-grid">
+                <div class="use-case-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>1 Year in business</span>
+                </div>
+                <div class="use-case-item">
+                    <i class="fas fa-university"></i>
+                    <span>Business checking account</span>
+                </div>
+                <div class="use-case-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>$100K business annual revenue</span>
+                </div>
+                <div class="use-case-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>625 personal FICO® score</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="process">
+        <div class="container">
+            <h2>FAQs: Business Line of Credit</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <h3>What's the difference between a business line of credit and a business term loan?</h3>
+                    <p><strong>Business line of credit.</strong> A small business line of credit can offer ongoing access to funds. If you're approved, you'll be able to draw funds up to a certain credit limit. You'll only pay interest on the amount you borrow. As you repay, the funds become available to borrow again. This makes a line of credit ideal for managing cash flow and other ongoing business needs.</p>
+                    <p><strong>Business term loan.</strong> A business term loan provides an upfront lump sum of cash. If approved, the funds will be deposited into your business bank account and you'll pay interest on the entire sum. Short-term business loans can be useful when covering large, one-time business expenses such as purchasing equipment or real estate.</p>
+                </div>
+                <div class="step">
+                    <h3>What's the difference between a secured and unsecured business line of credit?</h3>
+                    <p><strong>Secured business line of credit.</strong> With a secured line of credit, you will need to provide a business asset as collateral for the loan. For example, with many equipment loans the equipment itself acts as collateral. Though these types of loans may come with lower interest rates, there is also the risk that your business assets may be repossessed.</p>
+                    <p><strong>Unsecured business line of credit.</strong> An unsecured line of credit doesn't require collateral — though you may need to make a personal guarantee, holding you responsible for repayment if the business defaults. While unsecured lines of credit may have higher interest rates, they also protect your business assets and make it possible for businesses without many physical assets to get credit.</p>
+                    <p>Cares Capital Group offers unsecured lines of credit — so you can be confident your business assets are protected.</p>
+                </div>
+                <div class="step">
+                    <h3>What's the best line of credit for a small business?</h3>
+                    <p>The best line of credit for your business depends on your business needs. For some businesses, the amount they can borrow is the most important factor. For others, it may be things like interest rates, speed of funding or likelihood of credit approval.</p>
+                    <p>When searching for a line of credit for your business, you should review the loan terms. Look at things like interest rates, repayment schedules, credit limits and fees such as origination fees or early repayment fees. This can help you ensure that the line of credit you choose is a good fit for your business.</p>
+                    <p>At Cares Capital Group we offer fast, flexible business funding with transparent pricing. Our application process is easy and, once approved, you could get your funds as soon as the same business day.† Plus, our loan comparison tool gives you a comprehensive breakdown of your cost of capital so you can evaluate all your options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional FAQ Section -->
+    <section class="requirements">
+        <div class="container">
+            <h2>More FAQs: Business Line of Credit</h2>
+            <div class="requirements-grid">
+                <div class="requirement-item">
+                    <h3>What are the benefits of a business line of credit?</h3>
+                    <p><strong>Flexibility.</strong> Lines of credit are flexible borrowing options — allowing you to borrow what you need, when you need it.◊</p>
+                    <p><strong>Access to funds.</strong> A line of credit can give you working capital on demand — to manage day-to-day operations, cover unexpected needs or take advantage of business opportunities — even after regular business banking hours.</p>
+                    <p><strong>Cost-effective.</strong> Unlike a term loan where you pay interest on the entire lump sum, with a line of credit you typically only pay fees or interest on the amount that you borrow — allowing you to control costs.</p>
+                    <p><strong>Better cash flow management.</strong> With a line of credit, you can smooth cash flow gaps and ensure your business has the funds it needs to stay on track while investing in growth.</p>
+                </div>
+                <div class="requirement-item">
+                    <h3>How much can I borrow with a business line of credit?</h3>
+                    <p>The amount of business credit you can get depends on several factors, including your business's financial situation, creditworthiness and the lender's eligibility requirements. Typically, strong business finances and a good credit score will allow you to access higher credit limits and better terms such as a lower interest rate.</p>
+                    <p>An Cares Capital Group Line of Credit offers qualified borrowers loan amounts up to $200,000. Applying is easy and only takes a few minutes. Plus, Care Capital Group only conducts a soft credit check so it won't affect your score.</p>
+                </div>
+                <div class="requirement-item">
+                    <h3>How do I repay a business line of credit?</h3>
+                    <p>When you take a draw from a line of credit, you'll generally have a set time period to repay the funds. You make weekly or monthly payments on the amount that you've borrowed to pay it off by the end of the term.</p>
+                    <p>With an Cares Capital Group Line of Credit, you'll receive your repayment terms upfront. When you take a draw, you'll only pay interest on the amount you borrow and the funds will be repaid in an easy weekly or monthly payment. We don't charge any annual fees or draw fees. Additionally, you can repay early to bring down the cost of borrowing, with no prepayment penalty.</p>
+                </div>
+                <div class="requirement-item">
+                    <h3>What is Instant Funding?</h3>
+                    <p>Instant Funding is a fast and easy way for small business owners to access up to $10,000 in working capital to run their business. Draw from your line of credit when you need it and see the funds in your account in seconds, 24/7, even when the banks are closed.*</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final FAQ Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>More Important FAQs</h2>
+                <div class="faq-content">
+                    <div class="faq-item">
+                        <h3>How do I increase my business line of credit limit?</h3>
+                        <p>There are some times when you could really use access to additional funds. Some lenders will allow you to request a credit line increase. If you've demonstrated a good repayment history and have the capacity to borrow more, they may approve you.</p>
+                        <p>With Cares Capital Group, credit limit increases are based on your cash flow, net income and payment history. Care Capital Group continually reviews its accounts to see which may benefit from a line increase.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How much does a line of credit cost?</h3>
+                        <p>The total cost of your line of credit will vary based on a number of factors, including your personal and business credit scores, time in business, annual revenue and cash flow.§</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I get a business line of credit without a credit check?</h3>
+                        <p>If you don't have great credit or are a startup with limited business credit history, you may be wondering if you can get business financing without a credit check. Getting any type of small business financing without a credit check is rare. Most business lenders will perform some type of credit check during their underwriting process. They may check your personal credit score, the business credit score or sometimes both. However, there are lenders that perform a soft credit check and focus more on other factors such as time in business and annual revenue.</p>
+                        <p>Cares Capital Group uses soft pulls that don't affect your credit score — no hard inquiries.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How can I use my line of credit to build business credit history?</h3>
+                        <p>If your lender reports to the business credit bureaus, then business loans, including business lines of credit, can help you build your business credit history. Make sure that you take all the steps necessary to open your business credit file. And keep an eye on your credit utilization and ensure that you make your payments on time. Doing so will help you build positive credit history, which can potentially boost your business credit score.</p>
+                        <p>Cares Capital Group reports your payments to business credit bureaus, so every time you pay on time, you're building business credit history.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Will applying for an Cares Capital Group Line of Credit affect my credit?</h3>
+                        <p>We use soft pulls of personal credit reports that don't affect your credit score.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted by thousands Section -->
+    <section class="trusted-section">
+        <div class="container">
+            <h2>Trusted by thousands of business owners like you.</h2>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Cares Capital</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Small Business Loans</h4>
+                    <ul>
+                        <li><a href="commercial-line-of-credit.html">Commercial Line of Credit</a></li>
+                        <li><a href="term-loans.html">Term Loan</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="free-credit-score.html">Free Credit Score</a></li>
+
+                        <li><a href="trends-report.html">Trends Report</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="who-we-are.html">Who We Are</a></li>
+                        <li><a href="#">Become a Partner</a></li>
+                        <li><a href="#">In the Media</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Security Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Badges et accréditations -->
+            <div class="footer-badges">
+                <div class="badge-container">
+                    <img src="Footer cares capital group .JPG" alt="Cares Capital Group Accréditations" class="footer-badges-image">
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-disclaimers">
+                    <p>* Same-Day Funding is only available in certain states, for term loans up to $200K. Eligibility window is Monday – Friday before 10:30 a.m. ET. If checkout is done before 10:30 a.m. ET, funds will be available by 5 p.m. local time the same day. If checkout is done after 10:30 a.m. ET, or on a weekend or bank holiday, it will not qualify for Same-Day Funding and funds will be deposited within 2 – 3 business days.</p>
+                    <p>* Instant Funding requires registration and is subject to the Instant Funding Terms & Conditions. Instant Funding is limited to open lines of credit for draws between $1,000 - $10,000, and you can only make one draw request per day. Not all banks or debit card providers participate, and you must register a business debit card matching the information associated with your Care Capital Group account. Transfers are typically completed within 30 minutes, but may be subject to additional restrictions or delays.</p>
+                    <p>** There are some industries we cannot serve (see list of restricted industries). In addition, Care Capital Group does not lend to businesses in North Dakota. Other underwriting requirements may apply.</p>
+                    <p>† When you pay off an Cares Capital Group term loan early, you may still need to pay a portion of the unpaid interest expense as stated in the loan agreement. The specific percentage will be disclosed in your loan agreement.</p>
+                    <p>§ Eligibility for the lowest rates is very limited, available only to businesses with the strongest creditworthiness and cash flows, and typically businesses that have shown an excellent payment history on prior loan products with Care Capital Group. The average rate for term loans is 56.4% APR and the average rate for lines of credit is 56.6% APR. Averages are based on loans originated in the half-year ending June 30, 2025.</p>
+                    <p>◊ Depending on your state and other circumstances of your application, you may be required to make a minimum draw of $1,000 at origination.</p>
+                    <p>Loans are subject to lender approval. Depending on the state where your business is located and other attributes of your business and the loan, your business loan may be issued by a member of the Care Capital Group family of companies or by Celtic Bank. Your loan agreement will identify the lender prior to your signing. Loans of $250K are only approved for customers with strong credit profiles and sufficient verified monthly revenue.</p>
+                    <p>Cares Capital Group® is a Registered Trademark. All rights reserved.</p>
+                </div>
+                <p>&copy; 2025 Cares®. All rights reserved.</p>
+                <p>50 WATER STREET 10005 NEW-YORK</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Vérifier si l'utilisateur est déjà connecté
+            // Fonctionnalité d'authentification désactivée
+        });
+
+        function showAuthenticatedState() {
+            // Masquer les boutons de connexion
+            const navButtons = document.querySelector('.nav-buttons');
+            if (navButtons) {
+                navButtons.style.display = 'none';
+            }
+
+            // Afficher l'espace client
+            const navClientSpace = document.getElementById('navClientSpace');
+            if (navClientSpace) {
+                navClientSpace.style.display = 'flex';
+                
+                // Mettre à jour les informations utilisateur
+                const userInfo = null;
+                if (userInfo) {
+                    const clientName = document.getElementById('navClientName');
+                    if (clientName) {
+                        clientName.textContent = userInfo.name || 'User';
+                    }
+                }
+            }
+
+            // Masquer le bouton "Apply Now" dans le hero
+            const applyNowBtn = document.querySelector('.hero-buttons .btn-primary');
+            if (applyNowBtn) {
+                applyNowBtn.style.display = 'none';
+            }
+        }
+
+        // Mobile navigation toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            
+            console.log('🔍 Éléments navigation:', { navToggle: !!navToggle, navMenu: !!navMenu });
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    console.log('🖱️ Clic sur menu hamburger');
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+                
+                // Close mobile menu when clicking on a link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                    });
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.nav-container')) {
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                    }
+                });
+            } else {
+                console.error('❌ Éléments navigation non trouvés');
+            }
+        });
+    </script>
+</body>
+</html>

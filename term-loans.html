@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Term Loans - Cares Capital</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <div class="logo-container">
+                        <div class="logo-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h2 class="logo-text">Cares Capital</h2>
+                    </div>
+                </div>
+                
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Small Business Loans <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="commercial-line-of-credit.html">Commercial Line of Credit</a></li>
+                                <li><a href="term-loans.html">Term Loans</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="free-credit-score.html">Free Credit Score</a></li>
+
+                                <li><a href="trends-report.html">Trends Report</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="who-we-are.html">Who We Are</a></li>
+                                <li><a href="success-stories.html">Success Stories</a></li>
+                                <li><a href="become-a-partner.html">Become a Partner</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="tel:9146508064" class="nav-link phone">914-650-8064</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" id="loginBtn" onclick="window.location.href='signup.html'">Sign In</button>
+                    <a href="signup.html" class="btn btn-primary">Create Account</a>
+                </div>
+                
+                <!-- Client Space (hidden by default) -->
+                <div class="nav-client-space" id="navClientSpace" style="display: none;">
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="client-details">
+                            <span class="client-name" id="navClientName">User</span>
+                            <span class="client-status">Connected</span>
+                        </div>
+                    </div>
+                    <div class="client-actions">
+                        <a href="dashboard.html" class="btn btn-primary btn-small">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                        <button onclick="logout()" class="btn btn-secondary btn-small">
+                            <i class="fas fa-sign-out-alt"></i> Sign Out
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Business Term Loan</h1>
+                    <p>Apply for a business term loan from $5K - $250K.</p>
+                    <div class="hero-buttons">
+                        <a href="signup.html" class="btn btn-primary btn-large">Get Started</a>
+                        <div class="trustpilot-rating">
+                            <span>Trustpilot Logo 4.5 stars out of 5 stars TrustScore <strong>4.6</strong> | <strong>4674</strong> reviews</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-visual">
+                        <div class="chart-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="money-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Care Capital Group Term Loan Features Section -->
+    <section class="recognition">
+        <div class="container">
+            <h2>Cares Capital Group Term Loan Features</h2>
+            <div class="logos">
+                <div class="logo-item">
+                    <h3>Lump Sum</h3>
+                    <p>from $5K - $250K</p>
+                </div>
+                <div class="logo-item">
+                    <h3>24-Month</h3>
+                    <p>maximum repayment term</p>
+                </div>
+                <div class="logo-item">
+                    <h3>Predictable</h3>
+                    <p>daily or weekly payments</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is a business term loan Section -->
+    <section class="funding-options">
+        <div class="container">
+            <h2>What is a business term loan?</h2>
+            <div class="options-grid">
+                <div class="option-card">
+                    <div class="option-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Upfront Lump Sum</h3>
+                    <p>A business term loan provides borrowers with an upfront lump sum of cash that is repaid over a set period of time, or term. These types of loans offer small business owners predictable payments and usually come with fixed interest rates — so you can grow your business with confidence.</p>
+                    <p>Cares Capital Group provides qualified borrowers with term loans from $5,000 to $250,000, offering flexible repayment terms of up to 24 months. Get the funds your business needs fast with our quick online application process. Plus, get an upfront understanding of the costs with our transparent pricing and tailored support.</p>
+                </div>
+                
+                <div class="option-card">
+                    <div class="option-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Benefits of an Cares Capital Group Term Loan</h3>
+                    <ul class="option-features">
+                        <li><strong>No hard credit pulls</strong> - Apply for a business term loan with no hard credit pull.</li>
+                        <li><strong>Fast funding</strong> - If approved, business term loans can fund as soon as the same day.†</li>
+                        <li><strong>Build business credit history</strong> - Our term loans can help build business credit history with on-time payments.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What can a business term loan be used for Section -->
+    <section class="stats">
+        <div class="container">
+            <h2>What can a business term loan from Cares Capital Group be used for?</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">Equipment</div>
+                    <div class="stat-label">Purchasing new equipment</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Renovation</div>
+                    <div class="stat-label">Renovating your space</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Real Estate</div>
+                    <div class="stat-label">Buying real estate for a new location</div>
+                </div>
+            </div>
+            <div class="use-cases-grid">
+                <div class="use-case-item">
+                    <i class="fas fa-users"></i>
+                    <span>Covering payroll or hiring new employees</span>
+                </div>
+                <div class="use-case-item">
+                    <i class="fas fa-bullhorn"></i>
+                    <span>Launching a new marketing campaign</span>
+                </div>
+                <div class="use-case-item">
+                    <i class="fas fa-boxes"></i>
+                    <span>Restocking inventory</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How do business term loans work Section -->
+    <section class="why-choose">
+        <div class="container">
+            <h2>How do business term loans work?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-stream"></i>
+                    </div>
+                    <h3>Simple Process</h3>
+                    <p>A business term loan can be an easy, straightforward way to access funds for your business. Typically, you'll need to complete an online application process and provide the lender with some financial statements.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lump Sum Funding</h3>
+                    <p>If approved, the lender will offer you a lump sum of money that you agree to pay back over a certain period. The time you have to repay the loan is called the "term" and, depending on the loan, it can last from a few months to several years.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Flexible Terms</h3>
+                    <p>Before signing your loan agreement, be sure to review things like the repayment schedule and interest rate. Look for lenders that offer flexible terms and loan options that fit your business needs. Care Capital Group offers multiple repayment options so you can choose the one that works for your business. Plus with on-time payments, an Care Capital Group Term Loan can help you build your business credit history.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apply for an Care Capital Group Term Loan Section -->
+    <section class="use-cases">
+        <div class="container">
+            <h2>Apply for an Cares Capital Group Term Loan in minutes.</h2>
+            <div class="use-cases-grid">
+                <div class="use-case-item">
+                    <i class="fas fa-stream"></i>
+                    <span>Step 1 - Complete the application. Our streamlined process is designed to be completed in just minutes.</span>
+                </div>
+                <div class="use-case-item">
+                    <i class="fas fa-bolt"></i>
+                    <span>Step 2 - Get a decision. We'll let you know if you qualify for our term loan, line of credit or both. If approved, you can then choose your loan amount and repayment terms.</span>
+                </div>
+                <div class="use-case-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Step 3 - Receive your funds. Sign your contract and get funds as soon as the same day.†</span>
+                </div>
+            </div>
+            <div class="process-cta">
+                <a href="https://cares-capital-group.formaloo.co/xeo282" target="_blank" class="btn btn-primary btn-large">Apply Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Are we a match Section -->
+    <section class="process">
+        <div class="container">
+            <h2>Are we a match? Here's what's required to apply.**</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>1 Year in business</h3>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Business checking account</h3>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>$100K business annual revenue</h3>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>625 personal FICO® score</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- We're fluent in small business Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>We're fluent in small business — and ready to take your call.</h2>
+                <p>You don't need to be an expert on small business loans. Our team of U.S.-based business lending advisors is here to help you every step of the way.</p>
+                <div class="cta-contact">
+                    <a href="tel:9146508064" class="phone-large">914-650-8064</a>
+                    <p>Monday – Friday<br>9 a.m. – 7:30 p.m. ET</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="requirements">
+        <div class="container">
+            <h2>FAQs: Business Term Loan</h2>
+            <div class="requirements-grid">
+                <div class="requirement-item">
+                    <h3>Why do businesses get term loans?</h3>
+                    <p>Business term loans are a common financing option that small businesses use to fund large expenses while keeping cash flow stable. One of their advantages is a fixed repayment schedule. With fixed daily, weekly or monthly payments businesses can easily forecast expenses and manage debt.</p>
+                    <p>Businesses often use term loans to cover the cost of essential needs such as purchasing equipment, expanding operations or covering cash flow gaps. For example, in the construction industry, term loans can help fund the purchase of new machinery or bridge cash flow gaps during slower building seasons. Landscaping businesses often use term loans to invest in tools and supplies in preparation for the busy season. In healthcare, term loans can support the purchase of advanced medical equipment or help manage operational costs.</p>
+                    <p>The flexibility of a small business term loan allows it to address industry-specific needs and helps businesses plan for growth and stability.</p>
+                </div>
+                <div class="requirement-item">
+                    <h3>What are some examples of how term loans can be used?</h3>
+                    <p><strong>Expansion.</strong> Small business term loans can be used to fund the renovation of your current space or the opening of a new location. This can help you grow your business without putting too much strain on your operating budget.</p>
+                    <p><strong>Cash flow.</strong> Things like seasonal shifts and unexpected business expenses can cause cash flow issues. A cash flow loan can help you navigate gaps and take care of your business needs.</p>
+                    <p><strong>Equipment.</strong> Equipment loans can help you purchase expensive hardware for your business, whether its heavy machinery for construction or upgraded tech for your office.</p>
+                    <p><strong>Inventory.</strong> Inventory loans can provide you with the capital to purchase inventory in bulk. This can help you maximize your savings when you take advantage of the bulk discounts some vendors offer.</p>
+                </div>
+                <div class="requirement-item">
+                    <h3>What is the rate of interest for a term loan?</h3>
+                    <p>The interest rates on term loans can vary depending on several factors. Different lenders will have different eligibility requirements, but in general they will try to assess the overall financial health and creditworthiness of your business before setting the loan terms.</p>
+                    <p>Lenders will often look at things like your business or personal credit score, the amount you want to borrow, the length of the term and the overall health of your business finances to determine the interest rate on your term loan. Comparing offers from different lenders could help you find the most competitive rates.</p>
+                </div>
+                <div class="requirement-item">
+                    <h3>Is a business term loan the same as a working capital loan?</h3>
+                    <p>Working capital loans are essentially a type of business term loan, the key difference comes down to how they're used. Working capital loans are short-term loans used to cover daily operations or fix temporary cash flow gaps. They are typically unsecured loans and terms can be as short as a few months.</p>
+                    <p>Business term loans are often for a larger sum of money and have longer terms. Business terms loans are often used to fund long-term investments like expanding your business or purchasing expensive equipment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional FAQ Section -->
+    <section class="stats">
+        <div class="container">
+            <h2>More FAQs: Business Term Loan</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">Short-term</div>
+                    <div class="stat-label"><strong>Short-term loans.</strong> Short-term business loans can have a repayment period of up to two years. These can be great for smaller, immediate financial needs.</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Long-term</div>
+                    <div class="stat-label"><strong>Long-term loans.</strong> These types of loans have repayment periods that last longer than two years. Some examples include small business administration, or SBA loans, and loans from traditional lenders like banks. Long-term loans can be good for long-term investments such as purchasing commercial real estate.</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Cares Capital Group</div>
+                    <div class="stat-label">Cares Capital Group offers loans with terms of up to two years, providing flexibility to small businesses to manage their cash flow, invest in growth or cover unexpected expenses.</div>
+                </div>
+            </div>
+            <p>Plus, if you find yourself in need of more cash, Care Capital Group makes refinancing easy. If you choose to refinance with Care Capital Group, we'll waive the remaining unpaid interest on your loan, and you could qualify for a reduced origination fee.</p>
+        </div>
+    </section>
+
+    <!-- More FAQ Content -->
+    <section class="why-choose">
+        <div class="container">
+            <h2>Additional FAQs</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>What other types of business loan options are available?</h3>
+                    <p><strong>Business line of credit.</strong> A business line of credit is a form of revolving credit. If approved, you'll gain access to a credit limit you can draw from. As you repay, the funds become available to borrow again. Business term loans can help you manage cash flow and are good for ongoing expenses.</p>
+                    <p><strong>Business credit card.</strong> Business credit cards are another type of revolving credit. You'll charge purchases to the card's credit limit and as you pay the balance down, the credit limit becomes available for use again. They can help you manage smaller, day-to-day expenses.</p>
+                    <p><strong>Equipment financing.</strong> Equipment financing is a type of secured term loan used to purchase expensive equipment for your business. They work similarly to a term loan in that they provide a lump sum that you repay over time. However, since these loans are typically secured — the equipment often acts as the collateral.</p>
+                    <p><strong>Merchant cash advance.</strong> Merchant cash advances are not technically loans. Instead of borrowing money, you'll sell a portion of your future revenues. The provider is essentially paying an upfront lump sum of cash for a portion of your future credit card sales.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Can I repay my Care Capital Group Term Loan early?</h3>
+                    <p>Yes. If you qualify for our 100% prepayment benefit option, you can pay your loan off early in full and have all remaining interest waived without any penalty or fee.‡ If you don't qualify for the 100% prepayment benefit option, you'll be responsible for repaying 75% of the remaining unpaid interest if you repay early.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Are payments fixed or variable?</h3>
+                    <p>Payments for Care Capital Group's term loan are fixed, so you'll pay the same amount from the beginning to the end of your repayment term. This allows you to manage your cash flow with no surprises or large costs upfront.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted by thousands Section -->
+    <section class="trusted-section">
+        <div class="container">
+            <h2>Trusted by thousands of business owners like you.</h2>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Cares Capital</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Small Business Loans</h4>
+                    <ul>
+                        <li><a href="commercial-line-of-credit.html">Commercial Line of Credit</a></li>
+                        <li><a href="term-loans.html">Term Loan</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="free-credit-score.html">Free Credit Score</a></li>
+
+                        <li><a href="trends-report.html">Trends Report</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="who-we-are.html">Who We Are</a></li>
+                        <li><a href="#">Become a Partner</a></li>
+                        <li><a href="#">In the Media</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Security Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Badges et accréditations -->
+            <div class="footer-badges">
+                <div class="badge-container">
+                    <img src="Footer cares capital group .JPG" alt="Cares Capital Group Accréditations" class="footer-badges-image">
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-disclaimers">
+                    <p>* Same-Day Funding is only available in certain states, for term loans up to $200K. Eligibility window is Monday – Friday before 10:30 a.m. ET. If checkout is done before 10:30 a.m. ET, funds will be available by 5 p.m. local time the same day. If checkout is done after 10:30 a.m. ET, or on a weekend or bank holiday, it will not qualify for Same-Day Funding and funds will be deposited within 2 – 3 business days.</p>
+                    <p>* Instant Funding requires registration and is subject to the Instant Funding Terms & Conditions. Instant Funding is limited to open lines of credit for draws between $1,000 - $10,000, and you can only make one draw request per day. Not all banks or debit card providers participate, and you must register a business debit card matching the information associated with your Care Capital Group account. Transfers are typically completed within 30 minutes, but may be subject to additional restrictions or delays.</p>
+                    <p>** There are some industries we cannot serve (see list of restricted industries). In addition, Care Capital Group does not lend to businesses in North Dakota. Other underwriting requirements may apply.</p>
+                    <p>† When you pay off an Cares Capital Group term loan early, you may still need to pay a portion of the unpaid interest expense as stated in the loan agreement. The specific percentage will be disclosed in your loan agreement.</p>
+                    <p>‡ Eligibility for the lowest rates is very limited, available only to businesses with the strongest creditworthiness and cash flows, and typically businesses that have shown an excellent payment history on prior loan products with Care Capital Group. The average rate for term loans is 56.4% APR and the average rate for lines of credit is 56.6% APR. Averages are based on loans originated in the half-year ending June 30, 2025.</p>
+                    <p>◊ Depending on your state and other circumstances of your application, you may be required to make a minimum draw of $1,000 at origination.</p>
+                    <p>Loans are subject to lender approval. Depending on the state where your business is located and other attributes of your business and the loan, your business loan may be issued by a member of the Care Capital Group family of companies or by Celtic Bank. Your loan agreement will identify the lender prior to your signing. Loans of $250K are only approved for customers with strong credit profiles and sufficient verified monthly revenue.</p>
+                    <p>Care Capital Group® is a Registered Trademark. All rights reserved.</p>
+                </div>
+                <p>&copy; 2025 Cares®. All rights reserved.</p>
+                <p>50 WATER STREET 10005 NEW-YORK</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Vérifier si l'utilisateur est déjà connecté
+            // Fonctionnalité d'authentification désactivée
+        });
+
+        function showAuthenticatedState() {
+            // Masquer les boutons de connexion
+            const navButtons = document.querySelector('.nav-buttons');
+            if (navButtons) {
+                navButtons.style.display = 'none';
+            }
+
+            // Afficher l'espace client
+            const navClientSpace = document.getElementById('navClientSpace');
+            if (navClientSpace) {
+                navClientSpace.style.display = 'flex';
+                
+                // Mettre à jour les informations utilisateur
+                const userInfo = null;
+                if (userInfo) {
+                    const clientName = document.getElementById('navClientName');
+                    if (clientName) {
+                        clientName.textContent = userInfo.name || 'User';
+                    }
+                }
+            }
+
+            // Masquer le bouton "Apply Now" dans le hero
+            const applyNowBtn = document.querySelector('.hero-buttons .btn-primary');
+            if (applyNowBtn) {
+                applyNowBtn.style.display = 'none';
+            }
+        }
+
+        // Mobile navigation toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            
+            console.log('🔍 Éléments navigation:', { navToggle: !!navToggle, navMenu: !!navMenu });
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    console.log('🖱️ Clic sur menu hamburger');
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+                
+                // Close mobile menu when clicking on a link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                    });
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.nav-container')) {
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                    }
+                });
+            } else {
+                console.error('❌ Éléments navigation non trouvés');
+            }
+        });
+    </script>
+</body>
+</html>

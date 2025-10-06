@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Business Credit Score - Cares Capital</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Global Centering and Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+
+        
+        /* Credit Form Section */
+        .credit-form-section {
+            background: #f8f9fa;
+            padding: 5rem 0;
+        }
+        
+        .form-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            padding: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .form-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .form-intro h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .form-intro p {
+            color: #6c757d;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 2px solid #f1f3f4;
+        }
+        
+        .form-section:last-of-type {
+            border-bottom: none;
+        }
+        
+        .form-section h2 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+        }
+        
+        .form-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #495057;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .consent-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border: 1px solid #dee2e6;
+        }
+        
+        .checkbox-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            cursor: pointer;
+            line-height: 1.6;
+        }
+        
+        .checkbox-label input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+        
+        .consent-note {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin: 0.5rem 0;
+            font-style: italic;
+        }
+        
+        .additional-note {
+            background: #fff3cd;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #856404;
+        }
+        
+        .form-submit {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .btn-large {
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-large:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Benefits Section */
+        .recognition {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .logos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .logo-item {
+            text-align: center;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid #dee2e6;
+        }
+        
+        .logo-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .logo-item h3 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .logo-item p {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+        
+        /* Why Important Section */
+        .why-important {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .importance-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .why-important h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+        
+        .importance-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .importance-intro p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .benefits-list {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            border: 1px solid #e9ecef;
+        }
+        
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+            flex-shrink: 0;
+        }
+        
+        .benefit-content h3 {
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .benefit-content p {
+            color: #6c757d;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .importance-conclusion {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .importance-conclusion p {
+            font-size: 1.2rem;
+            color: #495057;
+            font-weight: 500;
+            line-height: 1.7;
+        }
+        
+        /* Score Explanation Section */
+        .score-explanation {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .score-explanation h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+        
+        .explanation-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .explanation-text p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            line-height: 1.8;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .faq-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 4rem;
+            font-weight: 700;
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .faq-item h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .faq-item p {
+            color: #6c757d;
+            line-height: 1.7;
+        }
+        
+        /* Improvement Guide Section */
+        .improvement-guide {
+            padding: 6rem 0;
+            background: white;
+        }
+        
+        .improvement-guide h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 4rem;
+            font-weight: 700;
+        }
+        
+        .improvement-steps {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .improvement-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .improvement-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-right: 3rem;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .step-content h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .step-content p {
+            color: #6c757d;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+        
+        /* Success Message Section */
+        .success-message {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            text-align: center;
+        }
+        
+        .success-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .success-icon {
+            font-size: 5rem;
+            color: #28a745;
+            margin-bottom: 2rem;
+        }
+        
+        .success-content h2 {
+            color: #155724;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .success-content p {
+            color: #155724;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        /* Funding CTA Section */
+        .funding-cta {
+            padding: 6rem 0;
+            background: white;
+            text-align: center;
+        }
+        
+        .funding-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .funding-content h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .funding-content p {
+            color: #6c757d;
+            margin-bottom: 2.5rem;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+
+
+        
+        /* Resources Section */
+        .resources {
+            padding: 6rem 0;
+            background: white;
+        }
+        
+        .resources h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 4rem;
+            font-weight: 700;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .resource-item {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .resource-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        .resource-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+        }
+        
+        .resource-item h3 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        
+        /* Trusted Section */
+        .trusted {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            text-align: center;
+        }
+        
+        .trusted-content h2 {
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        /* Footer Accreditations */
+        .accreditations {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+        
+        .accreditations p {
+            margin: 0.5rem 0;
+            color: #495057;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+
+            
+            .form-wrapper {
+                padding: 2rem 1.5rem;
+                margin: 0 1rem;
+            }
+            
+            .form-intro h2 {
+                font-size: 1.5rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .benefit-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .benefit-icon {
+                margin: 0 auto;
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            
+
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .why-important h2,
+            .score-explanation h2,
+            .faq-section h2,
+            .resources h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            
+            .form-wrapper {
+                padding: 1.5rem 1rem;
+            }
+            
+            .logo-item,
+            .benefit-item,
+            .faq-item,
+            .improvement-step,
+            .credit-option,
+            .resource-item {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <div class="logo-container">
+                        <div class="logo-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h2 class="logo-text">Cares Capital</h2>
+                    </div>
+                </div>
+                
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Small Business Loans <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="commercial-line-of-credit.html">Commercial Line of Credit</a></li>
+                                <li><a href="term-loans.html">Term Loans</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Resources <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="free-credit-score.html">Free Credit Score</a></li>
+
+                                <li><a href="trends-report.html">Trends Report</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="who-we-are.html">Who We Are</a></li>
+                                <li><a href="success-stories.html">Success Stories</a></li>
+                                <li><a href="become-a-partner.html">Become a Partner</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="tel:9146508064" class="nav-link phone">914-650-8064</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" id="loginBtn" onclick="window.location.href='signup.html'">Sign In</button>
+                    <a href="signup.html" class="btn btn-primary">Create Account</a>
+                </div>
+                
+                <!-- Client Space (hidden by default) -->
+                <div class="nav-client-space" id="navClientSpace" style="display: none;">
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="client-details">
+                            <span class="client-name" id="navClientName">User</span>
+                            <span class="client-status">Connected</span>
+                        </div>
+                    </div>
+                    <div class="client-actions">
+                        <a href="dashboard.html" class="btn btn-primary btn-small">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                        <button onclick="logout()" class="btn btn-secondary btn-small">
+                            <i class="fas fa-sign-out-alt"></i> Sign Out
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <!-- Credit Score Form Section -->
+    <section class="credit-form-section">
+        <div class="container">
+            <div class="form-wrapper">
+                <div class="form-intro">
+                    <h2>Get Your Free Business Credit Score</h2>
+                    <p>Complete the form below to receive your business credit score via email within a few business days.</p>
+                </div>
+                <form class="credit-score-form">
+                    <div class="form-section">
+                        <h2>Business Information</h2>
+                        
+                        <div class="form-group">
+                            <label for="businessName">Legal Business Name</label>
+                            <input type="text" id="businessName" placeholder="Enter your business name." required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="businessEntity">Business Entity Type</label>
+                            <select id="businessEntity" required>
+                                <option value="">Select...</option>
+                                <option value="llc">Limited Liability Company (LLC)</option>
+                                <option value="sole">Sole Proprietorship</option>
+                                <option value="corp">Corporation</option>
+                                <option value="gp">General Partnership</option>
+                                <option value="lp">Limited Partnership (LP)</option>
+                                <option value="llp">Limited Liability Partnership (LLP)</option>
+                                <option value="nonprofit">Non-Profit Legal Business Entity</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="businessAddress">Business Address</label>
+                            <input type="text" id="businessAddress" placeholder="Enter your business address." required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" placeholder="Enter your city." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <select id="state" required>
+                                    <option value="">Select...</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="WV">West Virginia</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="zipCode">Zip Code</label>
+                                <input type="text" id="zipCode" placeholder="Enter a 5-digit zip code." required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h2>Contact Information</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" placeholder="Enter your first name." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" placeholder="Enter your last name." required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter a valid email address." required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Mobile Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Enter a 10-digit phone number." required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h2>Additional Information</h2>
+                        
+                        <div class="form-group">
+                            <label for="timeInBusiness">Time in Business</label>
+                            <select id="timeInBusiness" required>
+                                <option value="">Select...</option>
+                                <option value="0-6">0-6 months</option>
+                                <option value="6-12">6-12 months</option>
+                                <option value="1">1 year</option>
+                                <option value="2">2 years</option>
+                                <option value="3">3 years</option>
+                                <option value="4-5">4-5 years</option>
+                                <option value="6-10">6-10 years</option>
+                                <option value="10+">Over 10 years</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="revenue">Revenue</label>
+                            <input type="number" id="revenue" placeholder="Enter your annual revenue, rounded to the nearest $1,000." required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section consent-section">
+                        <h2>Consent</h2>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" required>
+                                <span class="checkmark"></span>
+                                By checking this box, you, individually and on behalf of the business entity identified above: (1) consent to Cares Capital Group contacting you via email and telephone (including your cellular phone number) at the telephone number and email address identified above (or any telephone number or e-mail address that you may provide Care Capital Group in the future) for marketing and other purposes.
+                            </label>
+                            <p class="consent-note">You must consent to receive communications.</p>
+                            <p class="consent-note">Please read</p>
+                            <p class="consent-note">This consent applies even if you have previously opted out of such communications or are on any state, federal, or corporate Do-Not-Call registry; (2) confirm you are an authorized representative of the business, with the authority to enter into agreements on its behalf; (3) authorize Care Capital Group to obtain your business credit score and other information from any business credit reporting agency on an ongoing basis; and (4) acknowledge that you have read Care Capital Group's Terms of Use and Privacy Policy, and the free business credit score Terms and Conditions, agree to be bound by those terms, and understand your right to opt out of communications as provided therein.</p>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                By checking this box, you're opting in to receive text messages from Cares Capital Group for marketing and promotional purposes, and general information regarding our products and services at the telephone number provided above.
+                            </label>
+                            <p class="consent-note">Please read</p>
+                            <p class="consent-note">You are not required to opt in as a condition of purchasing any property, goods, or services. Message frequency varies. Standard message and data rates may apply. You can reply STOP to a text message from 35124 at any time to unsubscribe. Text HELP to 35124 for help. Review Care Capital Group's Terms of Use and Privacy Policy for additional information.</p>
+                        </div>
+                        
+                        <p class="additional-note">To the extent that Cares Capital Group cannot match the business information provided with a business credit score, we may contact you for further information on your business, including a request for a business identification number.</p>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary btn-large">Get Your Score</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Why is it important Section -->
+    <section class="why-important">
+        <div class="container">
+            <div class="importance-content">
+                <h2>Why is it important to know your score?</h2>
+                <div class="importance-intro">
+                    <p>Your business credit score is more than just a number — knowing it can help you understand where you stand and help you plan your next move. Whether you're planning for growth, applying for funding or simply staying prepared, knowing your score gives you a clearer picture of your business's financial health.</p>
+                </div>
+                
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Secure business funding</h3>
+                            <p>A good business credit score can make it easier to qualify for small business funding like a term loan or line of credit.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Get better terms from vendors</h3>
+                            <p>A strong score may lead to lower interest rates, better payment terms or higher credit limits with suppliers — saving you money and improving your cash flow.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Lower your insurance premiums</h3>
+                            <p>Some insurance companies consider your business credit score when setting rates. A stronger score may help reduce your premiums over time.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Catch fraud</h3>
+                            <p>Monitoring your score helps you spot inaccuracies, outdated information, or suspicious activity, such as identity theft, early.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="importance-conclusion">
+                    <p>Knowing your score puts you in control. It can help small business owners plan ahead, identify growth opportunities and position your business for success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is a good business credit score Section -->
+    <section class="score-explanation">
+        <div class="container">
+            <h2>What is a good business credit score?</h2>
+            <div class="explanation-content">
+                <div class="explanation-text">
+                    <p>Each of the business credit bureaus uses their own unique scale — so there's not an agreed-upon number that is a "good" business credit score. Generally, a higher score signifies a lower credit risk, which can be a big benefit for your business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How does checking my business credit score through Care Capital Group work?</h3>
+                    <p>To get your free business credit score all you need to do is fill out the form at the top of the page with some business information like company name, address and time in business. We'll use that information to get your business credit score from our partner, Equifax. Within a few days, we'll send you an email with your score. There's no cost and no need to create an account or apply for a loan.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Will checking affect my business credit score?</h3>
+                    <p>No, checking your own business credit score won't affect the score because it does not constitute an inquiry.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What is a business credit score?</h3>
+                    <p>A business credit score is a number that shows how your business handles credit. It can help you get a better idea of how third parties view your business's overall financial stability. It's based on things like paying your bills on time, how much debt you carry and how long you've been in business.</p>
+                    <p>Lenders, vendors, potential partners and investors may use it to determine your business's creditworthiness and see if they want to work with you — and on what terms.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>How do business credit scores work?</h3>
+                    <p>Business credit scores show your business's creditworthiness — or, in simple terms, how likely your company is to pay back what it owes. They're based on your business credit history which includes things like payment history, any liens or public records, how much you owe and your business's overall credit activity.</p>
+                    <p>There are three major business credit bureaus, Equifax, Experian and Dun & Bradstreet. They gather all your credit information to create a business credit profile. Lenders can use your business credit report and score to decide if you meet their eligibility requirements and under what terms they'll lend to you. A good credit score can help you secure lower interest rates and larger business loan amounts.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What's the difference between a personal and business credit score?</h3>
+                    <p>A personal credit score only reflects your personal credit history, it's affected by things like your personal credit card, car loan or mortgage. On the other hand, your business credit score reflects your business's credit history — only business accounts taken out in your company's name will affect it. Beyond your scores, there are several differences between personal and business credit. While lenders may consider both, a good business credit score can take some of the pressure off your personal score.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Can I use my business credit score to get business funding?</h3>
+                    <p>Yes, many lenders can use your business credit score to assess your eligibility for things like small business loans, credit cards and lines of credit. A strong score can help show that you are low risk and can help improve your chances of getting approved with better terms.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>How do I improve my business credit score?</h3>
+                    <p>Business credit scores are made up of several different factors, but the suggestions below may help improve your score.</p>
+                    <p>Building a strong business credit score starts with establishing your credit profile with the business credit bureaus and making sure your business information is complete and accurate.</p>
+                    <p>From there, it can help to open tradelines by getting credit accounts with vendors or lenders that report to these bureaus. Business credit cards, lines of credit or small business loans can also help build your business credit history, as long as you make on-time payments and the lender reports your payment activity.</p>
+                    <p>Maintain good credit habits by paying bills on time and keeping credit utilization low — this can help keep your credit file clear from delinquencies and liens. The age of your business and your industry's risk level can also factor into your score. Newer businesses or those in riskier sectors may see lower scores initially.</p>
+                    <p>Keep track of your progress by checking your score regularly — credit monitoring can help you catch and fix mistakes and fraud early.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Success Message Section -->
+    <section class="success-message">
+        <div class="container">
+            <div class="success-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Your business credit score is on the way!</h2>
+                <p>You should receive an email from us within a few business days.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Looking for funding Section -->
+    <section class="funding-cta">
+        <div class="container">
+            <div class="funding-content">
+                <h2>Looking for business funding?</h2>
+                <p>Applying with Care Capital Group won't affect your business credit score. Why wait? Get started today.</p>
+                <a href="https://cares-capital-group.formaloo.co/xeo282" target="_blank" class="btn btn-primary btn-large">Apply Now</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Learn more about business credit Section -->
+    <section class="resources">
+        <div class="container">
+            <h2>Learn more about business credit.</h2>
+            <div class="resources-grid">
+                <div class="resource-item">
+                    <div class="resource-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>How To Build Your Business Credit Fast</h3>
+                </div>
+                <div class="resource-item">
+                    <div class="resource-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>What Is a Good Business Credit Score?</h3>
+                </div>
+                <div class="resource-item">
+                    <div class="resource-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Business Credit vs. Personal Credit — What's the Difference?</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted by thousands Section -->
+    <section class="trusted">
+        <div class="container">
+            <div class="trusted-content">
+                <h2>Trusted by thousands of business owners like you.</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Cares Capital</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Small Business Loans</h4>
+                    <ul>
+                        <li><a href="commercial-line-of-credit.html">Commercial Line of Credit</a></li>
+                        <li><a href="term-loans.html">Term Loan</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="free-credit-score.html">Free Credit Score</a></li>
+
+                        <li><a href="trends-report.html">Trends Report</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="who-we-are.html">Who We Are</a></li>
+                        <li><a href="#">Become a Partner</a></li>
+                        <li><a href="#">In the Media</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Security Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Badges et accréditations -->
+            <div class="footer-badges">
+                <div class="badge-container">
+                    <img src="Footer cares capital group .JPG" alt="Cares Capital Group Accréditations" class="footer-badges-image">
+                </div>
+                <div class="accreditations">
+                    <p><strong>Better Business Bureau Accredited Business, A+ Rating</strong></p>
+                    <p><strong>Innovative Lending Platform Association</strong></p>
+                    <p><strong>Forbes Advisor, Best of 2023, Best Small Business Loans</strong></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-disclaimers">
+                    <p>* Same-Day Funding is only available in certain states, for term loans up to $200K. Eligibility window is Monday – Friday before 10:30 a.m. ET. If checkout is done before 10:30 a.m. ET, funds will be available by 5 p.m. local time the same day. If checkout is done after 10:30 a.m. ET, or on a weekend or bank holiday, it will not qualify for Same-Day Funding and funds will be deposited within 2 – 3 business days.</p>
+                    <p>* Instant Funding requires registration and is subject to the Instant Funding Terms & Conditions. Instant Funding is limited to open lines of credit for draws between $1,000 - $10,000, and you can only make one draw request per day. Not all banks or debit card providers participate, and you must register a business debit card matching the information associated with your Care Capital Group account. Transfers are typically completed within 30 minutes, but may be subject to additional restrictions or delays.</p>
+                    <p>** There are some industries we cannot serve (see list of restricted industries). In addition, Care Capital Group does not lend to businesses in North Dakota. Other underwriting requirements may apply.</p>
+                    <p>† When you pay off a Care Capital Group term loan early, you may still need to pay a portion of the unpaid interest expense as stated in the loan agreement. The specific percentage will be disclosed in your loan agreement.</p>
+                    <p>§ Eligibility for the lowest rates is very limited, available only to businesses with the strongest creditworthiness and cash flows, and typically businesses that have shown an excellent payment history on prior loan products with Care Capital Group. The average rate for term loans is 56.4% APR and the average rate for lines of credit is 56.6% APR. Averages are based on loans originated in the half-year ending June 30, 2025.</p>
+                    <p>◊ Depending on your state and other circumstances of your application, you may be required to make a minimum draw of $1,000 at origination.</p>
+                    <p>* Only customers who have previously renewed a term loan are eligible for a 0% origination fee. For customers renewing a term loan for the first time, a discounted origination fee will apply. No discount to the origination fee will be applied if you are approved for, and accept, a renewal loan of 24 months.</p>
+                    <p>Loans are subject to lender approval. Depending on the state where your business is located and other attributes of your business and the loan, your business loan may be issued by a member of the Care Capital Group family of companies or by Celtic Bank. Your loan agreement will identify the lender prior to your signing. Loans of $250K are only approved for customers with strong credit profiles and sufficient verified monthly revenue.</p>
+                    <p>Care Capital Group® is a Registered Trademark. All rights reserved.</p>
+                </div>
+                <p>&copy; 2025 Cares®. All rights reserved.</p>
+                <p>50 WATER STREET 10005 NEW-YORK</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Vérifier si l'utilisateur est déjà connecté
+            // Fonctionnalité d'authentification désactivée
+        });
+
+        function showAuthenticatedState() {
+            // Masquer les boutons de connexion
+            const navButtons = document.querySelector('.nav-buttons');
+            if (navButtons) {
+                navButtons.style.display = 'none';
+            }
+
+            // Afficher l'espace client
+            const navClientSpace = document.getElementById('navClientSpace');
+            if (navClientSpace) {
+                navClientSpace.style.display = 'flex';
+                
+                // Mettre à jour les informations utilisateur
+                const userInfo = null;
+                if (userInfo) {
+                    const clientName = document.getElementById('navClientName');
+                    if (clientName) {
+                        clientName.textContent = userInfo.name || 'User';
+                    }
+                }
+            }
+
+            // Masquer le bouton "Apply Now" dans le hero
+            const applyNowBtn = document.querySelector('.hero-buttons .btn-primary');
+            if (applyNowBtn) {
+                applyNowBtn.style.display = 'none';
+            }
+        }
+
+        // Mobile navigation toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            
+            console.log('🔍 Éléments navigation:', { navToggle: !!navToggle, navMenu: !!navMenu });
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    console.log('🖱️ Clic sur menu hamburger');
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+                
+                // Close mobile menu when clicking on a link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                    });
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.nav-container')) {
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                    }
+                });
+            } else {
+                console.error('❌ Éléments navigation non trouvés');
+            }
+        });
+
+        // Form submission handling
+        document.querySelector('.credit-score-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically send the form data to your backend
+            alert('Thank you! Your business credit score request has been submitted. You will receive an email within a few business days.');
+        });
+    </script>
+</body>
+</html>
